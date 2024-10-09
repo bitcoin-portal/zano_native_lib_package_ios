@@ -10,5 +10,4 @@
 + (NSString *)test {
     return @"This is a test string from ZanoString.";
 }
-
 @end
