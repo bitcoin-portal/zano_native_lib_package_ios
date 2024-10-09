@@ -27,8 +27,6 @@ xcodebuild build \
     -configuration $BUILD_CONFIGURATION \
     -derivedDataPath build \
     Build_library_for_distribution=$LIBRARY_FOR_DISTRIBUTION
-# OTHER_SWIFT_FLAGS="-disable-module-verification"
-# OTHER_SWIFT_FLAGS="-disable-module-verification"
 
 # Build for iOS Device
 xcodebuild build \
@@ -38,8 +36,6 @@ xcodebuild build \
     -configuration $BUILD_CONFIGURATION \
     -derivedDataPath build \
     Build_library_for_distribution=$LIBRARY_FOR_DISTRIBUTION
-# OTHER_SWIFT_FLAGS="-disable-module-verification"
-# OTHER_SWIFT_FLAGS="-disable-module-verification"
 
 # Create XCFramework
 xcodebuild \
