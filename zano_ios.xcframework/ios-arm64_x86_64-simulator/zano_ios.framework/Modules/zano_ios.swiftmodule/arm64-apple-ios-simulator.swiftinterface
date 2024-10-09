@@ -7,31 +7,6 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 @_exported import zano_ios
-public typealias ZANOString = Swift.UnsafeRawPointer
-public func swiftStringToStdString(with string: Swift.String) -> Swift.UnsafeRawPointer
 public enum ZanoWallet {
-  public static func testInitAddress(_ address: Swift.String, _ working_dir: Swift.String, _ log_level: Swift.Int32) -> Swift.String
-  public static func InitIpPort(_ ip: Swift.String, _ port: Swift.String, _ working_dir: Swift.String, _ log_level: Swift.Int32) -> Swift.String
-  public static func reset() -> Swift.String
-  public static func set_log_level() -> Swift.String
-  public static func get_version() -> Swift.String
-  public static func get_wallet_files() -> Swift.String
-  public static func get_export_private_info(_ target_dir: Swift.String) -> Swift.String
-  public static func delete_wallet(_ file_name: Swift.String) -> Swift.String
-  public static func get_address_info(_ addr: Swift.String) -> Swift.String
-  public static func get_appconfig(_ encryption_key: Swift.String) -> Swift.String
-  public static func set_appconfig(_ conf_str: Swift.String, _ encryption_key: Swift.String) -> Swift.String
-  public static func generate_random_key(_ lenght: Swift.UInt64) -> Swift.String
-  public static func get_logs_buffer() -> Swift.String
-  public static func truncate_log() -> Swift.String
-  public static func get_connectivity_status() -> Swift.String
-  public static func open(_ path: Swift.String, _ password: Swift.String) -> Swift.String
-  public static func restore(_ seed: Swift.String, _ path: Swift.String, _ password: Swift.String, _ seed_password: Swift.String) -> Swift.String
-  public static func generate(_ path: Swift.String, _ password: Swift.String) -> Swift.String
-  public static func get_opened_wallets() -> Swift.String
-  public static func async_call(_ method_name: Swift.String, _ instance_id: Swift.UInt64, _ params: Swift.String) -> Swift.String
-  public static func try_pull_result(_ uint64_t: Swift.UInt64) -> Swift.String
-  public static func sync_call(_ method_name: Swift.String, _ instance_id: Swift.UInt64, _ params: Swift.String) -> Swift.String
-  public static func is_wallet_exist(_ path: Swift.String) -> Swift.Bool
-  public static func get_current_tx_fee(_ priority: Swift.UInt64) -> Swift.UInt64
+  public static func get_versionCpp() -> Swift.String
 }
