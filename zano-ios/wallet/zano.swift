@@ -9,47 +9,7 @@ import Foundation
 internal import CxxStdlib
 internal import wallet
 
-public class Zano {
-    
-    public static func helloWorld(name: String) -> String {
-        return "Hello \(name)"
-    }
-
-    public static func fibonacci(_ n: Int) -> Int {
-        var a = 1
-        var b = 1
-        guard n > 1 else { return a }
-
-        (2...n).forEach { _ in
-            (a, b) = (a + b, a)
-        }
-        return a
-    }
-
-    public static func factorial(n: Int) -> Int {
-        var result = 1
-        if n > 0 {
-            (1...n).forEach { i in
-                result *= i
-            }
-        }
-        return result
-    }
-
-}
-
-
 public enum ZanoWallet {
-
-    // It doesn't export function with std.string return type :(
-//    public static func get_versionCppTest() -> std.string {
-//        std.string("2.2.3")
-//    }
-//    
-    public static func get_versionCppTest() -> String {
-        String(std.string("2.2.3"))
-    }
-
     public static func get_versionCpp() -> String {
         String(plain_wallet.get_version())
     }

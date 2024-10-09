@@ -7,13 +7,6 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 @_exported import zano_ios
-@_hasMissingDesignatedInitializers public class Zano {
-  public static func helloWorld(name: Swift.String) -> Swift.String
-  public static func fibonacci(_ n: Swift.Int) -> Swift.Int
-  public static func factorial(n: Swift.Int) -> Swift.Int
-  @objc deinit
-}
 public enum ZanoWallet {
-  public static func get_versionCppTest() -> Swift.String
   public static func get_versionCpp() -> Swift.String
 }
