@@ -7,9 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface HelloWorld : NSObject
+//+ (std::string)convertToStdString:(NSString *)swiftString;
 + (NSString *)test;
-
 @end
 

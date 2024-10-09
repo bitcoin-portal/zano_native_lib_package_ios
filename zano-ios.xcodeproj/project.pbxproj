@@ -17,7 +17,7 @@
 		6C1C22D02CAE18C50044307D /* libz.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C92CAE18C50044307D /* libz.a.xcframework */; };
 		6C1C22D12CAE18C50044307D /* libboost.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C22CAE18C50044307D /* libboost.xcframework */; };
 		6C61F9862CB6434800053E5F /* ZanoString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C61F9842CB6434800053E5F /* ZanoString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C61F9872CB6434800053E5F /* ZanoString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9852CB6434800053E5F /* ZanoString.mm */; };
+		6C61F9872CB6434800053E5F /* ZanoString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9852CB6434800053E5F /* ZanoString.m */; };
 		6C91C9502C93FF1F0002E766 /* zano_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C91C9472C93FF1E0002E766 /* zano_ios.framework */; };
 		6C91C9552C93FF1F0002E766 /* zano_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C9542C93FF1F0002E766 /* zano_iosTests.swift */; };
 		6C91C9562C93FF1F0002E766 /* zano_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C91C94A2C93FF1E0002E766 /* zano_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,7 +81,7 @@
 		6C1C22C92CAE18C50044307D /* libz.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libz.a.xcframework; sourceTree = "<group>"; };
 		6C1C22D72CAE209A0044307D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		6C61F9842CB6434800053E5F /* ZanoString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZanoString.h; sourceTree = "<group>"; };
-		6C61F9852CB6434800053E5F /* ZanoString.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZanoString.mm; sourceTree = "<group>"; };
+		6C61F9852CB6434800053E5F /* ZanoString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZanoString.m; sourceTree = "<group>"; };
 		6C91C9472C93FF1E0002E766 /* zano_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = zano_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C91C94A2C93FF1E0002E766 /* zano_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zano_ios.h; sourceTree = "<group>"; };
 		6C91C94F2C93FF1F0002E766 /* zano-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zano-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				6C61F9842CB6434800053E5F /* ZanoString.h */,
-				6C61F9852CB6434800053E5F /* ZanoString.mm */,
+				6C61F9852CB6434800053E5F /* ZanoString.m */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -474,7 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C61F9872CB6434800053E5F /* ZanoString.mm in Sources */,
+				6C61F9872CB6434800053E5F /* ZanoString.m in Sources */,
 				6C91C9602C9402CA0002E766 /* zano.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

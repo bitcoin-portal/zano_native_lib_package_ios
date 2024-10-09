@@ -16,23 +16,41 @@
       },
       {
         "kind": "Import",
-        "name": "CxxStdlib",
-        "printedName": "CxxStdlib",
-        "declKind": "Import",
-        "moduleName": "zano_ios",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "wallet",
         "printedName": "wallet",
         "declKind": "Import",
         "moduleName": "zano_ios",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "RawDocComment"
         ]
+      },
+      {
+        "kind": "Function",
+        "name": "swiftStringToStdString",
+        "printedName": "swiftStringToStdString(with:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "UnsafeRawPointer",
+            "printedName": "Swift.UnsafeRawPointer",
+            "usr": "s:SV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:8zano_ios016swiftStringToStdD04withSVSS_tF",
+        "mangledName": "$s8zano_ios016swiftStringToStdD04withSVSS_tF",
+        "moduleName": "zano_ios",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
       },
       {
         "kind": "TypeDecl",
@@ -41,8 +59,8 @@
         "children": [
           {
             "kind": "Function",
-            "name": "get_versionCpp",
-            "printedName": "get_versionCpp()",
+            "name": "get_version",
+            "printedName": "get_version()",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -52,12 +70,128 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:8zano_ios10ZanoWalletO14get_versionCppSSyFZ",
-            "mangledName": "$s8zano_ios10ZanoWalletO14get_versionCppSSyFZ",
+            "usr": "s:8zano_ios10ZanoWalletO11get_versionSSyFZ",
+            "mangledName": "$s8zano_ios10ZanoWalletO11get_versionSSyFZ",
             "moduleName": "zano_ios",
             "static": true,
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "get_wallet_files",
+            "printedName": "get_wallet_files()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:8zano_ios10ZanoWalletO16get_wallet_filesSSyFZ",
+            "mangledName": "$s8zano_ios10ZanoWalletO16get_wallet_filesSSyFZ",
+            "moduleName": "zano_ios",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "get_logs_buffer",
+            "printedName": "get_logs_buffer()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:8zano_ios10ZanoWalletO15get_logs_bufferSSyFZ",
+            "mangledName": "$s8zano_ios10ZanoWalletO15get_logs_bufferSSyFZ",
+            "moduleName": "zano_ios",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "truncate_log",
+            "printedName": "truncate_log()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:8zano_ios10ZanoWalletO12truncate_logSSyFZ",
+            "mangledName": "$s8zano_ios10ZanoWalletO12truncate_logSSyFZ",
+            "moduleName": "zano_ios",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "get_connectivity_status",
+            "printedName": "get_connectivity_status()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:8zano_ios10ZanoWalletO23get_connectivity_statusSSyFZ",
+            "mangledName": "$s8zano_ios10ZanoWalletO23get_connectivity_statusSSyFZ",
+            "moduleName": "zano_ios",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "get_opened_wallets",
+            "printedName": "get_opened_wallets()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:8zano_ios10ZanoWalletO18get_opened_walletsSSyFZ",
+            "mangledName": "$s8zano_ios10ZanoWalletO18get_opened_walletsSSyFZ",
+            "moduleName": "zano_ios",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           }

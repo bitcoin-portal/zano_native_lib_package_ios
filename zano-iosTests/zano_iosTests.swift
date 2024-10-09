@@ -19,6 +19,26 @@ class zano_iosTests: XCTestCase {
     }
 
     func testZANOVerssion() throws {
-        XCTAssertEqual(ZanoWallet.get_versionCpp(), "2.0.0.336[132d2bf]")
+        XCTAssertEqual(ZanoWallet.get_version(), "2.0.0.336[132d2bf]")
+    }
+    
+    func testHelloWorld() throws {
+        XCTAssertEqual(HelloWorld.test(), "This is a test string from ZanoString.")
+    }
+    
+    func testGetWalletFiles() throws {
+        XCTAssertEqual(ZanoWallet.get_wallet_files().data(using: .utf8)?.base64EncodedString(), "ew0KfQ==")
+    }
+    
+    func testGetLogsBuffer() throws {
+        XCTAssertEqual(ZanoWallet.get_logs_buffer(), "")
+    }
+    
+    func testGetOpenedWallets() throws {
+        XCTAssertEqual(ZanoWallet.get_opened_wallets().data(using: .utf8)?.base64EncodedString(), "ew0KICAiaWQiOiAwLA0KICAianNvbnJwYyI6ICIiLA0KICAicmVzdWx0Ijogew0KICAgICJyZXR1cm5fY29kZSI6ICJVTklOSVRJQUxJWkVEIg0KICB9DQp9")
+    }
+
+    func testTruncateLog() throws {
+        XCTAssertEqual(ZanoWallet.truncate_log().data(using: .utf8)?.base64EncodedString(), "ew0KICAiaWQiOiAwLA0KICAianNvbnJwYyI6ICIiLA0KICAicmVzdWx0Ijogew0KICAgICJyZXR1cm5fY29kZSI6ICJPSyINCiAgfQ0KfQ==")
     }
 }
