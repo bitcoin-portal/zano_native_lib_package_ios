@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import zano_ios
+import zano_ios
 
 class zano_iosTests: XCTestCase {
 
@@ -18,19 +18,33 @@ class zano_iosTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testZANOVerssion() throws {
+        XCTAssertEqual(ZanoWallet.get_version(), "2.0.0.336[132d2bf]")
+    }
+    
+    func testHelloWorld() throws {
+        XCTAssertEqual(HelloWorld.test(), "This is a test string from ZanoString.")
+    }
+    
+    func testGetWalletFiles() throws {
+        XCTAssertEqual(ZanoWallet.get_wallet_files().data(using: .utf8)?.base64EncodedString(), "ew0KfQ==")
+    }
+    
+    func testGetLogsBuffer() throws {
+        XCTAssertEqual(ZanoWallet.get_logs_buffer(), "")
+    }
+    
+    func testGetOpenedWallets() throws {
+        XCTAssertEqual(ZanoWallet.get_opened_wallets().data(using: .utf8)?.base64EncodedString(), "ew0KICAiaWQiOiAwLA0KICAianNvbnJwYyI6ICIiLA0KICAicmVzdWx0Ijogew0KICAgICJyZXR1cm5fY29kZSI6ICJVTklOSVRJQUxJWkVEIg0KICB9DQp9")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testTruncateLog() throws {
+        XCTAssertEqual(ZanoWallet.truncate_log().data(using: .utf8)?.base64EncodedString(), "ew0KICAiaWQiOiAwLA0KICAianNvbnJwYyI6ICIiLA0KICAicmVzdWx0Ijogew0KICAgICJyZXR1cm5fY29kZSI6ICJPSyINCiAgfQ0KfQ==")
+    }
+
+    func testInitIpPort() throws {
+        let hoge = ZanoWallet.InitIpPort("", "", "", 0).data(using: .utf8)?.base64EncodedString()
+        XCTAssertEqual(hoge, "ew0KICAiZXJyb3IiOiB7DQogICAgImNvZGUiOiAiSU5URVJOQUxfRVJST1IiLA0KICAgICJtZXNzYWdlIjogIltpbml0XSBAIFwvVXNlcnNcL3Jva3lcL3Byb2plY3RzXC9aYW5vXC9tb2JpbGVfcmVwb1wvbW9iaWxlXC96YW5vX25hdGl2ZV9saWJcL3phbm9cL3NyY1wvd2FsbGV0XC9wbGFpbl93YWxsZXRfYXBpLmNwcDoyMzcgXG5tZXNzYWdlOlJlYWQtb25seSBmaWxlIHN5c3RlbSINCiAgfSwNCiAgImlkIjogMCwNCiAgImpzb25ycGMiOiAiIiwNCiAgIm1ldGhvZCI6ICIiDQp9")
     }
 
 }
