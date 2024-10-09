@@ -7,6 +7,13 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 @_exported import zano_ios
+public typealias ZANOString = Swift.UnsafeRawPointer
+public func swiftStringToStdString(with string: Swift.String) -> Swift.UnsafeRawPointer
 public enum ZanoWallet {
-  public static func get_versionCpp() -> Swift.String
+  public static func get_version() -> Swift.String
+  public static func get_wallet_files() -> Swift.String
+  public static func get_logs_buffer() -> Swift.String
+  public static func truncate_log() -> Swift.String
+  public static func get_connectivity_status() -> Swift.String
+  public static func get_opened_wallets() -> Swift.String
 }
