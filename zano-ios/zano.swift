@@ -6,11 +6,17 @@
 //
 
 import Foundation
-//internal import CxxStdlib
+internal import CxxStdlib
 internal import wallet
 
 
 public typealias ZANOString = UnsafeRawPointer
+
+func convertUnsafeRawPointerToStdString(rawPointer: UnsafeRawPointer) -> CxxStdlib.std.string {
+    let cStringPointer = rawPointer.assumingMemoryBound(to: CChar.self)
+    let swiftString = String(cString: cStringPointer)
+    return CxxStdlib.std.string(swiftString)
+}
 
 public func swiftStringToStdString(with string: String) -> UnsafeRawPointer {
     let cString = string.cString(using: .utf8)!
@@ -25,28 +31,32 @@ public enum ZanoWallet {
     //        - `hwallet`<br>A type representing a wallet handle, defined as `int64_t`.
 //    public typealias hwallet = plain_wallet.hwallet
 //    
-//    //            ### Initialization Functions
-//    //            std::string init(const std::string& address, const std::string& working_dir, int log_level);
-//    public static func testInitAddress(_ address: std.string, _ working_dir: std.string, _ log_level: Int32) ->CxxStdlib.std.string {
-//        plain_wallet.`init`(address, working_dir, log_level)
-//    }
+    //            ### Initialization Functions
+    //            std::string init(const std::string& address, const std::string& working_dir, int log_level);
+    public static func testInitAddress(_ address: String, _ working_dir: String, _ log_level: Int32) -> String {
+        let addr = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: address))
+        let workingDirRaw = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: working_dir))
+
+        return String(plain_wallet.`init`(addr, workingDirRaw, log_level))
+    }
 //    
-//    //        std::string init(const std::string& ip, const std::string& port, const std::string& working_dir, intlog_level);
-//    public static func testInitIpPort(_ ip: std.string, _ port: std.string, _ working_dir: std.string, _ log_level:Int32) -> CxxStdlib.std.string {
-//        plain_wallet.`init`(ip, port, working_dir, log_level)
-//    }
-//    
-//    //        ### Utility Functions
-//    //        std::string reset();
-//    public static func reset() -> CxxStdlib.std.string {
-//        plain_wallet.reset()
-//    }
-//    
-//    //        std::string set_log_level(int log_level);
-//    public static func set_log_level() -> CxxStdlib.std.string {
-//        plain_wallet.set_log_level(0)
-//    }
-//    
+    //        std::string init(const std::string& ip, const std::string& port, const std::string& working_dir, intlog_level);
+    public static func InitIpPort(_ ip: String, _ port: String, _ working_dir: String, _ log_level:Int32) -> String {
+        let ipRaw = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: ip))
+        let portRaw = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: port))
+        let workingDirRaw = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: working_dir))
+        return String(plain_wallet.`init`(ipRaw, portRaw, workingDirRaw, log_level))
+    }
+    
+    // MARK: - Utility Functions
+    public static func reset() -> String {
+        return String(plain_wallet.reset())
+    }
+    
+    public static func set_log_level() -> String {
+        return String(plain_wallet.set_log_level(0))
+    }
+    
     //        std::string get_version();
     public static func get_version() -> String {
         String(plain_wallet.get_version())
@@ -57,130 +67,137 @@ public enum ZanoWallet {
         String(plain_wallet.get_wallet_files())
     }
 //    
-    //        std::string get_export_private_info(const std::string& target_dir);
-//    public static func get_export_private_info(_ target_dir: String) -> String {
-//        let cStringPointer = swiftStringToStdString(with: target_dir)
-//        let stdString = swiftStringToStdString(cStringPointer.assumingMemoryBound(to: CChar.self))
-//
-//        plain_wallet.get_export_private_info(target_dir)
-//    }
+//            std::string get_export_private_info(const std::string& target_dir);
+    public static func get_export_private_info(_ target_dir: String) -> String {
+        let dir = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: target_dir))
+        return String(plain_wallet.get_export_private_info(dir))
+    }
+    
+    //        std::string delete_wallet(const std::string& file_name);
+    public static func delete_wallet(_ file_name: String) -> String {
+        let fileName = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: file_name))
+        return String(plain_wallet.delete_wallet(fileName))
+    }
 //    
-//    //        std::string delete_wallet(const std::string& file_name);
-//    public static func delete_wallet(_ file_name: std.string) -> CxxStdlib.std.string {
-//        plain_wallet.delete_wallet(file_name)
-//    }
-//    
-//    //        std::string get_address_info(const std::string& addr);
-//    public static func get_address_info(_ addr: std.string) -> CxxStdlib.std.string {
-//        plain_wallet.get_address_info(addr)
-//    }
-//    
-//    //        ### Configuration Functions
-//    //        std::string get_appconfig(const std::string& encryption_key);
-//    public static func get_appconfig(_ encryption_key: std.string) -> CxxStdlib.std.string {
-//        plain_wallet.get_appconfig(encryption_key)
-//    }
-//    
-//    //        std::string set_appconfig(const std::string& conf_str, const std::string& encryption_key);
-//    public static func set_appconfig(_ conf_str: std.string, _ encryption_key: std.string) -> CxxStdlib.std.string {
-//        plain_wallet.set_appconfig(conf_str, encryption_key)
-//    }
-//    
-//    //        std::string generate_random_key(uint64_t lenght);
-//    public static func generate_random_key(_ lenght: UInt64) -> CxxStdlib.std.string {
-//        plain_wallet.generate_random_key(lenght)
-//    }
-//    
-//    //        std::string get_logs_buffer();
+    //        std::string get_address_info(const std::string& addr);
+    public static func get_address_info(_ addr: String) -> String {
+        let address = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: addr))
+        return String(plain_wallet.get_address_info(address))
+    }
+
+    // MARK: - Configuration Functions
+    
+    public static func get_appconfig(_ encryption_key: String) -> String {
+        let key = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: encryption_key))
+        return String(plain_wallet.get_appconfig(key))
+    }
+    
+    public static func set_appconfig(_ conf_str: String, _ encryption_key: String) -> String {
+        let conf = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: conf_str))
+        let key = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: encryption_key))
+
+        return String(plain_wallet.set_appconfig(conf, key))
+    }
+    
+    public static func generate_random_key(_ lenght: UInt64) -> String {
+        return String(plain_wallet.generate_random_key(lenght))
+    }
+    
     public static func get_logs_buffer() -> String {
         String(plain_wallet.get_logs_buffer())
     }
-//    
-//    //        std::string truncate_log();
+
     public static func truncate_log() -> String {
         String(plain_wallet.truncate_log())
     }
-//    
-    //        std::string get_connectivity_status();
+
     public static func get_connectivity_status() -> String {
         String(plain_wallet.get_connectivity_status())
     }
-//    
-//    //        ### Wallet Management Functions
-//    //        std::string open(const std::string& path, const std::string& password);
-//    public static func open(_ path: std.string, _ password: std.string) -> CxxStdlib.std.string {
-//        plain_wallet.open(path, password)
-//    }
-//    
-//    //        std::string restore(const std::string& seed, const std::string& path, const std::string& password, conststd::string& seed_password);
-//    public static func restore(_ seed: std.string, _ path: std.string, _ password: std.string, _ seed_password:std.string) -> CxxStdlib.std.string {
-//        plain_wallet.restore(seed, path, password, seed_password)
-//    }
-//    
-//    //        std::string generate(const std::string& path, const std::string& password);
-//    public static func generate(_ path: std.string, _ password: std.string) -> CxxStdlib.std.string {
-//        plain_wallet.generate(path, password)
-//    }
-//    
-    //        std::string get_opened_wallets();
+
+    // MARK: - Wallet Management Functions
+    public static func open(_ path: String, _ password: String) -> String {
+        let pa = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: path))
+        let ps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: password))
+
+        return String(plain_wallet.open(pa, ps))
+    }
+    
+    public static func restore(_ seed: String, _ path: String, _ password: String, _ seed_password:String) -> String {
+        let sd = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: seed))
+        let pa = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: path))
+        let ps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: password))
+        let sdps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: seed_password))
+
+        return String(plain_wallet.restore(sd, pa, ps, sdps))
+    }
+    
+    public static func generate(_ path: String, _ password: String) -> String {
+        let pa = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: path))
+        let ps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: password))
+
+        return String(plain_wallet.generate(pa, ps))
+    }
+
     public static func get_opened_wallets() -> String {
         return String(plain_wallet.get_opened_wallets())
     }
 //    
-//    //        ### Wallet Operations
-//    //        std::string get_wallet_status(hwallet h);
+    // MARK: - Wallet Operations
+    //        std::string get_wallet_status(hwallet h);
 //    public static func get_wallet_status(_ h: hwallet) -> CxxStdlib.std.string {
 //        plain_wallet.get_wallet_status(h)
 //    }
-//    
+////    
 //    //        std::string close_wallet(hwallet h);
 //    public static func close_wallet(_ h: hwallet) -> CxxStdlib.std.string {
 //        plain_wallet.close_wallet(h)
 //    }
-//    
+////    
 //    //        std::string invoke(hwallet h, const std::string& params);
 //    public static func invoke(_ h: hwallet, _ params: std.string) -> CxxStdlib.std.string {
 //        plain_wallet.invoke(h, params)
 //    }
 //    
 //    
-//    //        ### Asynchronous API Functions
-//    //        std::string async_call(const std::string& method_name, uint64_t instance_id, const std::string& params);
-//    public static func async_call(_ method_name: std.string, _ instance_id: UInt64, _ params: std.string) ->CxxStdlib.std.string {
-//        plain_wallet.async_call(method_name, instance_id, params)
-//    }
-//    
-//    //        std::string try_pull_result(uint64_t);
-//    public static func try_pull_result(_ uint64_t: UInt64) -> CxxStdlib.std.string {
-//        plain_wallet.try_pull_result(uint64_t)
-//    }
-//    
-//    //        std::string sync_call(const std::string& method_name, uint64_t instance_id, const std::string& params);
-//    public static func sync_call(_ method_name: std.string, _ instance_id: UInt64, _ params: std.string) ->CxxStdlib.std.string {
-//        plain_wallet.sync_call(method_name, instance_id, params)
-//    }
-//    
-//    //        ### Cake Wallet API Extension
-//    //        bool is_wallet_exist(const std::string& path);
-//    public static func is_wallet_exist(_ path: std.string) -> Bool {
-//        plain_wallet.is_wallet_exist(path)
-//    }
-//    
-//    //        std::string get_wallet_info(hwallet h);
+    // MARK: - Asynchronous API Functions
+    public static func async_call(_ method_name: String, _ instance_id: UInt64, _ params: String) ->String {
+        let name = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: method_name))
+        let param = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: params))
+
+        return String(plain_wallet.async_call(name, instance_id, param))
+    }
+    
+    public static func try_pull_result(_ uint64_t: UInt64) -> String {
+        return String(plain_wallet.try_pull_result(uint64_t))
+    }
+    
+    public static func sync_call(_ method_name: String, _ instance_id: UInt64, _ params: String) ->String {
+        let method = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: method_name))
+        let param = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: params))
+
+        return String(plain_wallet.sync_call(method, instance_id, param))
+    }
+    
+    // MARK: - Cake Wallet API Extension
+    public static func is_wallet_exist(_ path: String) -> Bool {
+        let ps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: path))
+
+        return plain_wallet.is_wallet_exist(ps)
+    }
+    
+    //        std::string get_wallet_info(hwallet h);
 //    public static func get_wallet_info(_ h: hwallet) -> CxxStdlib.std.string {
 //        plain_wallet.get_wallet_info(h)
 //    }
-//    
-//    //        std::string reset_wallet_password(hwallet h, const std::string& password);
+    
+    //        std::string reset_wallet_password(hwallet h, const std::string& password);
 //    public static func reset_wallet_password(_ h: hwallet, _ password: std.string) -> CxxStdlib.std.string {
 //        plain_wallet.reset_wallet_password(h, password)
 //    }
-//    
-//    //        uint64_t get_current_tx_fee(uint64_t priority); // 0 (default), 1 (unimportant), 2 (normal), 3 (elevated),4 (priority)
-//    public static func get_current_tx_fee(_ priority: UInt64) -> CxxStdlib.__uint64_t {
-//        plain_wallet.get_current_tx_fee(priority)
-//    }
-//
-
     
+    //        uint64_t get_current_tx_fee(uint64_t priority); // 0 (default), 1 (unimportant), 2 (normal), 3 (elevated),4 (priority)
+    public static func get_current_tx_fee(_ priority: UInt64) -> UInt64 {
+        return UInt64(plain_wallet.get_current_tx_fee(priority))
+    }
 }
