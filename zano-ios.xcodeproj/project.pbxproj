@@ -16,8 +16,20 @@
 		6C1C22CF2CAE18C50044307D /* libcurrency_core.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C62CAE18C50044307D /* libcurrency_core.a.xcframework */; };
 		6C1C22D02CAE18C50044307D /* libz.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C92CAE18C50044307D /* libz.a.xcframework */; };
 		6C1C22D12CAE18C50044307D /* libboost.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C22CAE18C50044307D /* libboost.xcframework */; };
+		6C4001602CC098BA004D5511 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C40015F2CC098BA004D5511 /* Model.swift */; };
 		6C61F9862CB6434800053E5F /* ZanoString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C61F9842CB6434800053E5F /* ZanoString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C61F9872CB6434800053E5F /* ZanoString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9852CB6434800053E5F /* ZanoString.mm */; };
+		6C61F98F2CB9073E00053E5F /* JSONRPCImports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9892CB9073E00053E5F /* JSONRPCImports.swift */; };
+		6C61F9902CB9073E00053E5F /* JSONRPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9882CB9073E00053E5F /* JSONRPCError.swift */; };
+		6C61F9912CB9073E00053E5F /* RPCID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F98A2CB9073E00053E5F /* RPCID.swift */; };
+		6C61F9922CB9073E00053E5F /* RPCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F98C2CB9073E00053E5F /* RPCResponse.swift */; };
+		6C61F9932CB9073E00053E5F /* RPCResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F98D2CB9073E00053E5F /* RPCResult.swift */; };
+		6C61F9942CB9073E00053E5F /* RPCRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F98B2CB9073E00053E5F /* RPCRequest.swift */; };
+		6C61F9992CB9075800053E5F /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9972CB9075800053E5F /* Either.swift */; };
+		6C61F99A2CB9075800053E5F /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9952CB9075800053E5F /* AnyCodable.swift */; };
+		6C61F99B2CB9075800053E5F /* AnyCodableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9962CB9075800053E5F /* AnyCodableError.swift */; };
+		6C61F99D2CB90D9700053E5F /* StringConversionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F99C2CB90D9700053E5F /* StringConversionUtils.swift */; };
+		6C61F9A02CB90E2900053E5F /* ZanoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F99F2CB90E2900053E5F /* ZanoCore.swift */; };
 		6C91C9502C93FF1F0002E766 /* zano_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C91C9472C93FF1E0002E766 /* zano_ios.framework */; };
 		6C91C9552C93FF1F0002E766 /* zano_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C9542C93FF1F0002E766 /* zano_iosTests.swift */; };
 		6C91C9562C93FF1F0002E766 /* zano_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C91C94A2C93FF1E0002E766 /* zano_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,8 +92,20 @@
 		6C1C22C82CAE18C50044307D /* libwallet.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libwallet.a.xcframework; sourceTree = "<group>"; };
 		6C1C22C92CAE18C50044307D /* libz.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libz.a.xcframework; sourceTree = "<group>"; };
 		6C1C22D72CAE209A0044307D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		6C40015F2CC098BA004D5511 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6C61F9842CB6434800053E5F /* ZanoString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZanoString.h; sourceTree = "<group>"; };
 		6C61F9852CB6434800053E5F /* ZanoString.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZanoString.mm; sourceTree = "<group>"; };
+		6C61F9882CB9073E00053E5F /* JSONRPCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRPCError.swift; sourceTree = "<group>"; };
+		6C61F9892CB9073E00053E5F /* JSONRPCImports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRPCImports.swift; sourceTree = "<group>"; };
+		6C61F98A2CB9073E00053E5F /* RPCID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCID.swift; sourceTree = "<group>"; };
+		6C61F98B2CB9073E00053E5F /* RPCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCRequest.swift; sourceTree = "<group>"; };
+		6C61F98C2CB9073E00053E5F /* RPCResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCResponse.swift; sourceTree = "<group>"; };
+		6C61F98D2CB9073E00053E5F /* RPCResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCResult.swift; sourceTree = "<group>"; };
+		6C61F9952CB9075800053E5F /* AnyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
+		6C61F9962CB9075800053E5F /* AnyCodableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodableError.swift; sourceTree = "<group>"; };
+		6C61F9972CB9075800053E5F /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		6C61F99C2CB90D9700053E5F /* StringConversionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConversionUtils.swift; sourceTree = "<group>"; };
+		6C61F99F2CB90E2900053E5F /* ZanoCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanoCore.swift; sourceTree = "<group>"; };
 		6C91C9472C93FF1E0002E766 /* zano_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = zano_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C91C94A2C93FF1E0002E766 /* zano_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zano_ios.h; sourceTree = "<group>"; };
 		6C91C94F2C93FF1F0002E766 /* zano-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zano-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,10 +200,43 @@
 		6C61F97F2CB642F000053E5F /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				6C61F99E2CB90E1100053E5F /* Objective-C */,
+				6C61F99F2CB90E2900053E5F /* ZanoCore.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		6C61F98E2CB9073E00053E5F /* JSONRPC */ = {
+			isa = PBXGroup;
+			children = (
+				6C61F9982CB9075800053E5F /* Commons */,
+				6C61F9882CB9073E00053E5F /* JSONRPCError.swift */,
+				6C61F9892CB9073E00053E5F /* JSONRPCImports.swift */,
+				6C61F98A2CB9073E00053E5F /* RPCID.swift */,
+				6C61F98B2CB9073E00053E5F /* RPCRequest.swift */,
+				6C61F98C2CB9073E00053E5F /* RPCResponse.swift */,
+				6C61F98D2CB9073E00053E5F /* RPCResult.swift */,
+			);
+			path = JSONRPC;
+			sourceTree = "<group>";
+		};
+		6C61F9982CB9075800053E5F /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				6C61F9952CB9075800053E5F /* AnyCodable.swift */,
+				6C61F9962CB9075800053E5F /* AnyCodableError.swift */,
+				6C61F9972CB9075800053E5F /* Either.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		6C61F99E2CB90E1100053E5F /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
 				6C61F9842CB6434800053E5F /* ZanoString.h */,
 				6C61F9852CB6434800053E5F /* ZanoString.mm */,
 			);
-			path = Internal;
+			path = "Objective-C";
 			sourceTree = "<group>";
 		};
 		6C91C93D2C93FF1E0002E766 = {
@@ -212,6 +269,9 @@
 			children = (
 				6C91C94A2C93FF1E0002E766 /* zano_ios.h */,
 				6C91C95F2C9402CA0002E766 /* zano.swift */,
+				6C61F99C2CB90D9700053E5F /* StringConversionUtils.swift */,
+				6C40015F2CC098BA004D5511 /* Model.swift */,
+				6C61F98E2CB9073E00053E5F /* JSONRPC */,
 				6C61F97F2CB642F000053E5F /* Internal */,
 				6C1C22D82CAE22C10044307D /* wallet */,
 				6C1C22C12CAE18AD0044307D /* Dependencies */,
@@ -476,6 +536,18 @@
 			files = (
 				6C61F9872CB6434800053E5F /* ZanoString.mm in Sources */,
 				6C91C9602C9402CA0002E766 /* zano.swift in Sources */,
+				6C61F98F2CB9073E00053E5F /* JSONRPCImports.swift in Sources */,
+				6C61F9902CB9073E00053E5F /* JSONRPCError.swift in Sources */,
+				6C61F9912CB9073E00053E5F /* RPCID.swift in Sources */,
+				6C61F9922CB9073E00053E5F /* RPCResponse.swift in Sources */,
+				6C61F9992CB9075800053E5F /* Either.swift in Sources */,
+				6C4001602CC098BA004D5511 /* Model.swift in Sources */,
+				6C61F99A2CB9075800053E5F /* AnyCodable.swift in Sources */,
+				6C61F99D2CB90D9700053E5F /* StringConversionUtils.swift in Sources */,
+				6C61F99B2CB9075800053E5F /* AnyCodableError.swift in Sources */,
+				6C61F9A02CB90E2900053E5F /* ZanoCore.swift in Sources */,
+				6C61F9932CB9073E00053E5F /* RPCResult.swift in Sources */,
+				6C61F9942CB9073E00053E5F /* RPCRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
