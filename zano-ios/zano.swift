@@ -6,198 +6,305 @@
 //
 
 import Foundation
-internal import CxxStdlib
-internal import wallet
-
-
 public typealias ZANOString = UnsafeRawPointer
 
-func convertUnsafeRawPointerToStdString(rawPointer: UnsafeRawPointer) -> CxxStdlib.std.string {
-    let cStringPointer = rawPointer.assumingMemoryBound(to: CChar.self)
-    let swiftString = String(cString: cStringPointer)
-    return CxxStdlib.std.string(swiftString)
-}
-
-public func swiftStringToStdString(with string: String) -> UnsafeRawPointer {
-    let cString = string.cString(using: .utf8)!
-    let rawPointer = UnsafeRawPointer(cString.withUnsafeBufferPointer {
-        $0.baseAddress!
-    })
-    return rawPointer
+public var asyncCallMethods: [String] {
+    return [
+        "close",
+        "open",
+        "restore",
+        "get_seed_phrase_info",
+        "invoke",// (this is proxy to wallet JSON RPC API, documented in the official documentation)
+        "get_wallet_status"
+    ]
 }
 
 public enum ZanoWallet {
-    //        ### Typedef
-    //        - `hwallet`<br>A type representing a wallet handle, defined as `int64_t`.
-//    public typealias hwallet = plain_wallet.hwallet
-//    
-    //            ### Initialization Functions
-    //            std::string init(const std::string& address, const std::string& working_dir, int log_level);
-    public static func testInitAddress(_ address: String, _ working_dir: String, _ log_level: Int32) -> String {
-        let addr = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: address))
-        let workingDirRaw = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: working_dir))
-
-        return String(plain_wallet.`init`(addr, workingDirRaw, log_level))
-    }
-//    
-    //        std::string init(const std::string& ip, const std::string& port, const std::string& working_dir, intlog_level);
-    public static func InitIpPort(_ ip: String, _ port: String, _ working_dir: String, _ log_level:Int32) -> String {
-        let ipRaw = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: ip))
-        let portRaw = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: port))
-        let workingDirRaw = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: working_dir))
-        return String(plain_wallet.`init`(ipRaw, portRaw, workingDirRaw, log_level))
+    // MARK: - Initialization Functions
+    public static func InitIpPort(ip: String, port: String, working_dir: String, log_level:Int32) throws -> SuccessResult {
+        debugPrint("ip is \(ip)")
+        debugPrint("port is \(port)")
+        debugPrint("working_dir is \(working_dir)")
+        debugPrint("log_level is \(log_level)")
+        let ipCpp = StringConversionUtils.swiftStringToCppString(ip)
+        let portCpp = StringConversionUtils.swiftStringToCppString(port)
+        let workingDirRawCpp = StringConversionUtils.swiftStringToCppString(working_dir)
+        debugPrint("ipCpp is \(ipCpp)")
+        debugPrint("portCpp is \(portCpp)")
+        debugPrint("workingDirRawCpp is \(workingDirRawCpp)")
+        let jsonStr = String(ZanoCore.initIpPort(ipCpp, portCpp, workingDirRawCpp, log_level))
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: SuccessResult.self)
+        return result
+        
     }
     
     // MARK: - Utility Functions
-    public static func reset() -> String {
-        return String(plain_wallet.reset())
+    public static func reset() throws -> SuccessResult {
+        
+        let jsonStr = String(ZanoCore.reset())
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: SuccessResult.self)
+        return result
     }
     
-    public static func set_log_level() -> String {
-        return String(plain_wallet.set_log_level(0))
+    public static func getVersion() -> String {
+        String(ZanoCore.get_version())
     }
     
-    //        std::string get_version();
-    public static func get_version() -> String {
-        String(plain_wallet.get_version())
+    public static func getWalletFiles() throws -> GetWalletFileResult {
+        let jsonStr = String(ZanoCore.get_wallet_files())
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseJsonResponse(jsonData: jsonData, resultType: GetWalletFileResult.self)
+        return result
     }
     
-    //        std::string get_wallet_files();
-    public static func get_wallet_files() -> String {
-        String(plain_wallet.get_wallet_files())
-    }
-//    
-//            std::string get_export_private_info(const std::string& target_dir);
-    public static func get_export_private_info(_ target_dir: String) -> String {
-        let dir = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: target_dir))
-        return String(plain_wallet.get_export_private_info(dir))
+    public static func deleteWallet(file_name: String) throws -> SuccessResult {
+        let fileName = StringConversionUtils.swiftStringToCppString(file_name)
+        let jsonStr = String(ZanoCore.delete_wallet(fileName))
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: SuccessResult.self)
+        return result
     }
     
-    //        std::string delete_wallet(const std::string& file_name);
-    public static func delete_wallet(_ file_name: String) -> String {
-        let fileName = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: file_name))
-        return String(plain_wallet.delete_wallet(fileName))
+    public static func getAddressInfo(addr: String) throws -> AddressInfo {
+        let address = StringConversionUtils.swiftStringToCppString(addr)
+        let jsonStr = String(ZanoCore.get_address_info(address))
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseJsonResponse(jsonData: jsonData, resultType: AddressInfo.self)
+        return result
     }
-//    
-    //        std::string get_address_info(const std::string& addr);
-    public static func get_address_info(_ addr: String) -> String {
-        let address = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: addr))
-        return String(plain_wallet.get_address_info(address))
-    }
-
+    
     // MARK: - Configuration Functions
-    
-    public static func get_appconfig(_ encryption_key: String) -> String {
-        let key = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: encryption_key))
-        return String(plain_wallet.get_appconfig(key))
+    public static func getLogsBuffer() -> String {
+        String(ZanoCore.get_logs_buffer())
     }
     
-    public static func set_appconfig(_ conf_str: String, _ encryption_key: String) -> String {
-        let conf = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: conf_str))
-        let key = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: encryption_key))
-
-        return String(plain_wallet.set_appconfig(conf, key))
+    public static func truncateLog() throws -> SuccessResult {
+        let jsonStr = String(ZanoCore.truncate_log())
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: SuccessResult.self)
+        return result
     }
     
-    public static func generate_random_key(_ lenght: UInt64) -> String {
-        return String(plain_wallet.generate_random_key(lenght))
+    public static func getConnectivityStatus() throws -> ConnectivityStatus {
+        let jsonStr = String(ZanoCore.get_connectivity_status())
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseJsonResponse(jsonData: jsonData, resultType: ConnectivityStatus.self)
+        return result
     }
     
-    public static func get_logs_buffer() -> String {
-        String(plain_wallet.get_logs_buffer())
-    }
-
-    public static func truncate_log() -> String {
-        String(plain_wallet.truncate_log())
-    }
-
-    public static func get_connectivity_status() -> String {
-        String(plain_wallet.get_connectivity_status())
-    }
-
     // MARK: - Wallet Management Functions
-    public static func open(_ path: String, _ password: String) -> String {
-        let pa = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: path))
-        let ps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: password))
-
-        return String(plain_wallet.open(pa, ps))
+    public static func restore(seed: String, walletName: String, password: String, seed_password:String) throws -> WalletResult {
+        let sd = StringConversionUtils.swiftStringToCppString(seed)
+        let pa = StringConversionUtils.swiftStringToCppString(walletName)
+        let ps = StringConversionUtils.swiftStringToCppString(password)
+        let sdps = StringConversionUtils.swiftStringToCppString(seed_password)
+        
+        
+        debugPrint("seed is \(sd)")
+        debugPrint("walletName is \(pa)")
+        debugPrint("ps is \(ps)")
+        debugPrint("sdps is \(sdps)")
+        let jsonStr = String(ZanoCore.restore(sd, pa, ps, sdps))
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: WalletResult.self)
+        return result
     }
     
-    public static func restore(_ seed: String, _ path: String, _ password: String, _ seed_password:String) -> String {
-        let sd = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: seed))
-        let pa = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: path))
-        let ps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: password))
-        let sdps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: seed_password))
-
-        return String(plain_wallet.restore(sd, pa, ps, sdps))
+    // Create a new wallet
+    // https://github.com/hyle-team/zano_mobile/blob/6cf344ee1d1b8f462c9339cce5054bc1fd2790b8/src/cpp/zano_wallet_interface_impl.cxx#L74
+    // generate_new_wallet
+    public static func generate(walletName: String, password: String) throws -> WalletResult {
+        let name = StringConversionUtils.swiftStringToCppString(walletName)
+        let ps = StringConversionUtils.swiftStringToCppString(password)
+        let jsonStr = String(ZanoCore.generate(name, ps))
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: WalletResult.self)
+        return result
     }
     
-    public static func generate(_ path: String, _ password: String) -> String {
-        let pa = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: path))
-        let ps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: password))
-
-        return String(plain_wallet.generate(pa, ps))
+    // not working?
+    public static func getOpenedWallets() throws -> [WalletResult] {
+        let jsonStr = String(ZanoCore.get_opened_wallets())
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: [WalletResult].self)
+        return result
     }
-
-    public static func get_opened_wallets() -> String {
-        return String(plain_wallet.get_opened_wallets())
-    }
-//    
-    // MARK: - Wallet Operations
-    //        std::string get_wallet_status(hwallet h);
-//    public static func get_wallet_status(_ h: hwallet) -> CxxStdlib.std.string {
-//        plain_wallet.get_wallet_status(h)
-//    }
-////    
-//    //        std::string close_wallet(hwallet h);
-//    public static func close_wallet(_ h: hwallet) -> CxxStdlib.std.string {
-//        plain_wallet.close_wallet(h)
-//    }
-////    
-//    //        std::string invoke(hwallet h, const std::string& params);
-//    public static func invoke(_ h: hwallet, _ params: std.string) -> CxxStdlib.std.string {
-//        plain_wallet.invoke(h, params)
-//    }
-//    
-//    
+    
+    
+    /*
+     "close"
+     "open",
+     "restore"
+     "get_seed_phrase_info",
+     "invoke" (this is proxy to wallet JSON RPC API, documented in the official documentation)
+     "get_wallet_status"
+     
+     */
+    
     // MARK: - Asynchronous API Functions
-    public static func async_call(_ method_name: String, _ instance_id: UInt64, _ params: String) ->String {
-        let name = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: method_name))
-        let param = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: params))
+    
+    public static func asyncCall(methodName: String, walletId: UInt64, params: String) async throws -> JobResult {
+        guard asyncCallMethods.contains(methodName) else {
+            throw ZANOError.unknown(message: "unsupported method name")
+        }
+        
+        let name = StringConversionUtils.swiftStringToCppString(methodName)
+        let param = StringConversionUtils.swiftStringToCppString(params)
+        
+        
+        let jsonStr = String(ZanoCore.async_call(name, walletId, param))
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseJsonResponse(jsonData: jsonData, resultType: JobResult.self)
+        return result
+    }
+    // MARK:  Wallet Operations
+    public static func asyncGetWalletStatus(jobId: UInt64) async throws -> WalletSyncStatus {
+        let jsonStr = String(String(ZanoCore.try_pull_result(jobId)))
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseJsonResponse(jsonData: jsonData, resultType: WalletSyncStatus.self)
+        return result
+    }
 
-        return String(plain_wallet.async_call(name, instance_id, param))
+    
+    public static func asyncRestore(jobId: UInt64) async throws -> WalletResult {
+        let jsonStr = String(String(ZanoCore.try_pull_result(jobId)))
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseJsonResponse(jsonData: jsonData, resultType: WalletResult.self)
+        return result
     }
     
-    public static func try_pull_result(_ uint64_t: UInt64) -> String {
-        return String(plain_wallet.try_pull_result(uint64_t))
+    // https://docs.zano.org/docs/build/rpc-api/wallet-rpc-api/getbalance
+    public static func asyncGetBalance(jobId: UInt64) async throws -> BalanceResult {
+        let jsonStr = String(String(ZanoCore.try_pull_result(jobId)))
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: BalanceResult.self)
+        return result
     }
-    
-    public static func sync_call(_ method_name: String, _ instance_id: UInt64, _ params: String) ->String {
-        let method = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: method_name))
-        let param = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: params))
 
-        return String(plain_wallet.sync_call(method, instance_id, param))
-    }
     
-    // MARK: - Cake Wallet API Extension
-    public static func is_wallet_exist(_ path: String) -> Bool {
-        let ps = convertUnsafeRawPointerToStdString(rawPointer: swiftStringToStdString(with: path))
+    // required to get JobId from asyncCall
+    public static func asyncOpen(jobId: UInt64) async throws -> WalletResult {
+        let jsonStr = String(String(ZanoCore.try_pull_result(jobId)))
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseJsonResponse(jsonData: jsonData, resultType: WalletResult.self)
+        return result
+    }
 
-        return plain_wallet.is_wallet_exist(ps)
+    // required to get JobId from asyncCall
+    public static func asyncClose(jobId: UInt64) async throws -> SuccessResult {
+        let jsonStr = String(String(ZanoCore.try_pull_result(jobId)))
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+        
+        let result = try JSONRPCParser.parseJsonResponse(jsonData: jsonData, resultType: SuccessResult.self)
+        return result
     }
     
-    //        std::string get_wallet_info(hwallet h);
-//    public static func get_wallet_info(_ h: hwallet) -> CxxStdlib.std.string {
-//        plain_wallet.get_wallet_info(h)
-//    }
-    
-    //        std::string reset_wallet_password(hwallet h, const std::string& password);
-//    public static func reset_wallet_password(_ h: hwallet, _ password: std.string) -> CxxStdlib.std.string {
-//        plain_wallet.reset_wallet_password(h, password)
-//    }
-    
-    //        uint64_t get_current_tx_fee(uint64_t priority); // 0 (default), 1 (unimportant), 2 (normal), 3 (elevated),4 (priority)
-    public static func get_current_tx_fee(_ priority: UInt64) -> UInt64 {
-        return UInt64(plain_wallet.get_current_tx_fee(priority))
+    // Currently ZANO always retuns 10000000000(0.01)
+//    https://github.com/hyle-team/zano/blob/69a5d42d9908b7168247e103b2b40aae8c1fb3f5/src/currency_core/currency_config.h#L63
+//    https://github.com/hyle-team/zano/blob/69a5d42d9908b7168247e103b2b40aae8c1fb3f5/src/wallet/plain_wallet_api.cpp#L677
+    public static func getCurrentTxFee(priority: UInt64) -> UInt64 {
+        return UInt64(ZanoCore.get_current_tx_fee(priority))
     }
 }
+
+public struct WorkingDir {
+    public static var dir: String? {
+        let fileManager = FileManager.default
+
+        if let docsDir = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+            return docsDir.path
+        } else {
+            return nil
+        }
+    }
+}
+
+public struct ZANOConst {
+    public static let ZANO_TESTNET_IP = "195.201.107.230"
+    public static let ZANO_TESTNET_PORT = "33336"
+    public static let TEST_WALLET_NAME = "testWallet1"
+    public static let TEST_WALLET_PASSWORD = "testWalletPassword"
+    public static let TEST_WALLET_SEED =
+        "insult understand back vein peaceful somewhere bare deeply anyone hunger wait prince shoot grip scream bowl mama card dread less sadness angry explore almost worry dim"
+    public static let TEST_WALLET_ADDRESS =
+        "ZxCx5QqAh67JwX7F2hs7M2FcJ3bcLEhWfb2yqiofDeWn67guYBA4fwb1ekbsp7vZid35fVJtY6E2iiWVUJWRkyQu1Mchqr3iE"
+}
+
+// MARK: = Prser
+
+public struct JSONRPCParser {
+    public static func parseResponse<T: Codable>(jsonData: Data, resultType: T.Type) throws -> T {
+        let decodedResponse = try JSONDecoder().decode(RPCResponse.self, from: jsonData)
+        
+        if let result = decodedResponse.result {
+            // Return success with the parsed result
+            return try result.get(T.self)
+        } else if let error = decodedResponse.error {
+            // Return failure with the error
+            throw ZANOError.errorResponse(code: error.code, message: error.message)
+        } else {
+            throw ZANOError.unknown(message: "")
+        }
+    }
+    
+    public static func parseJsonResponse<T: Codable>(jsonData: Data, resultType: T.Type) throws -> T {
+        return try JSONDecoder().decode(T.self, from: jsonData)
+    }
+}
+
