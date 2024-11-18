@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
 // swift-module-flags: -target arm64-apple-ios17.5 -enable-objc-interop -cxx-interoperability-mode=default -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name zano_ios
 import Foundation
 import Swift
@@ -12,127 +12,26 @@ public var asyncCallMethods: [Swift.String] {
   get
 }
 public enum ZanoWallet {
-  public static func InitIpPort(ip: Swift.String, port: Swift.String, working_dir: Swift.String, log_level: Swift.Int32) throws -> zano_ios.SuccessResult
-  public static func reset() throws -> zano_ios.SuccessResult
+  public static func InitIpPort(ip: Swift.String, port: Swift.String, working_dir: Swift.String, log_level: Swift.Int32) -> Swift.String
+  public static func reset() -> Swift.String
   public static func getVersion() -> Swift.String
-  public static func getWalletFiles() throws -> zano_ios.GetWalletFileResult
-  public static func deleteWallet(file_name: Swift.String) throws -> zano_ios.SuccessResult
-  public static func getAddressInfo(addr: Swift.String) throws -> zano_ios.AddressInfo
+  public static func getWalletNames() -> Swift.String
+  public static func deleteWallet(file_name: Swift.String) -> Swift.String
+  public static func getAddressInfo(addr: Swift.String) -> Swift.String
   public static func getLogsBuffer() -> Swift.String
-  public static func truncateLog() throws -> zano_ios.SuccessResult
-  public static func getConnectivityStatus() throws -> zano_ios.ConnectivityStatus
-  public static func restore(seed: Swift.String, walletName: Swift.String, password: Swift.String, seed_password: Swift.String) throws -> zano_ios.WalletResult
-  public static func generate(walletName: Swift.String, password: Swift.String) throws -> zano_ios.WalletResult
-  public static func getOpenedWallets() throws -> [zano_ios.WalletResult]
-  public static func asyncCall(methodName: Swift.String, walletId: Swift.UInt64, params: Swift.String) async throws -> zano_ios.JobResult
-  public static func asyncGetWalletStatus(jobId: Swift.UInt64) async throws -> zano_ios.WalletSyncStatus
-  public static func asyncRestore(jobId: Swift.UInt64) async throws -> zano_ios.WalletResult
-  public static func asyncGetBalance(jobId: Swift.UInt64) async throws -> zano_ios.BalanceResult
-  public static func asyncOpen(jobId: Swift.UInt64) async throws -> zano_ios.WalletResult
-  public static func asyncClose(jobId: Swift.UInt64) async throws -> zano_ios.SuccessResult
+  public static func truncateLog() -> Swift.String
+  public static func getConnectivityStatus() -> Swift.String
+  public static func restore(seed: Swift.String, walletName: Swift.String, password: Swift.String, seed_password: Swift.String) -> Swift.String
+  public static func generate(walletName: Swift.String, password: Swift.String) -> Swift.String
+  public static func getOpenedWallets() -> Swift.String
+  public static func asyncCall(methodName: Swift.String, walletId: Swift.UInt64, params: Swift.String) throws -> Swift.String
+  public static func asyncGetRestoreInfo(jobId: Swift.UInt64) async -> Swift.String
+  public static func asyncGetWalletStatus(jobId: Swift.UInt64) async -> Swift.String
+  public static func asyncRestore(jobId: Swift.UInt64) async -> Swift.String
+  public static func asyncGetBalance(jobId: Swift.UInt64) async -> Swift.String
+  public static func asyncOpen(jobId: Swift.UInt64) async -> Swift.String
+  public static func asyncClose(jobId: Swift.UInt64) async throws -> Swift.String
   public static func getCurrentTxFee(priority: Swift.UInt64) -> Swift.UInt64
-}
-public struct WorkingDir {
-  public static var dir: Swift.String? {
-    get
-  }
-}
-public struct ZANOConst {
-  public static let ZANO_TESTNET_IP: Swift.String
-  public static let ZANO_TESTNET_PORT: Swift.String
-  public static let TEST_WALLET_NAME: Swift.String
-  public static let TEST_WALLET_PASSWORD: Swift.String
-  public static let TEST_WALLET_SEED: Swift.String
-  public static let TEST_WALLET_ADDRESS: Swift.String
-}
-public struct JSONRPCParser {
-  public static func parseResponse<T>(jsonData: Foundation.Data, resultType: T.Type) throws -> T where T : Swift.Decodable, T : Swift.Encodable
-  public static func parseJsonResponse<T>(jsonData: Foundation.Data, resultType: T.Type) throws -> T where T : Swift.Decodable, T : Swift.Encodable
-}
-public struct JSONRPCError : Swift.Error, Swift.Equatable, Swift.Codable {
-  public let code: Swift.String
-  public let message: Swift.String
-  public let data: zano_ios.AnyCodable?
-  public init(code: Swift.String, message: Swift.String, data: zano_ios.AnyCodable? = nil)
-  public static func == (a: zano_ios.JSONRPCError, b: zano_ios.JSONRPCError) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public typealias RPCID = zano_ios.Either<Swift.String, Swift.Int64>
-public protocol IdentifierGenerator {
-  func next() -> zano_ios.RPCID
-}
-extension zano_ios.Either where L == Swift.String, R == Swift.Int64 {
-  public init()
-  public var string: Swift.String {
-    get
-  }
-  public var integer: Swift.Int64 {
-    get
-  }
-  public var timestamp: Foundation.Date {
-    get
-  }
-}
-public struct RPCResponse : Swift.Equatable {
-  public let jsonrpc: Swift.String
-  public let id: zano_ios.RPCID?
-  public var result: zano_ios.AnyCodable? {
-    get
-  }
-  public var error: zano_ios.JSONRPCError? {
-    get
-  }
-  public let outcome: zano_ios.RPCResult
-  public init(id: zano_ios.RPCID?, outcome: zano_ios.RPCResult)
-  public init<C>(matchingRequest: zano_ios.RPCRequest, result: C) where C : Swift.Decodable, C : Swift.Encodable
-  public init(matchingRequest: zano_ios.RPCRequest, error: zano_ios.JSONRPCError)
-  public init<C>(id: Swift.Int64, result: C) where C : Swift.Decodable, C : Swift.Encodable
-  public init<C>(id: Swift.String, result: C) where C : Swift.Decodable, C : Swift.Encodable
-  public init<C>(id: zano_ios.RPCID, result: C) where C : Swift.Decodable, C : Swift.Encodable
-  public init(id: zano_ios.RPCID?, error: zano_ios.JSONRPCError)
-  public init(id: Swift.Int64, error: zano_ios.JSONRPCError)
-  public init(id: Swift.String, error: zano_ios.JSONRPCError)
-  public init(id: Swift.Int64, errorCode: Swift.String, message: Swift.String, associatedData: zano_ios.AnyCodable? = nil)
-  public init(id: Swift.String, errorCode: Swift.String, message: Swift.String, associatedData: zano_ios.AnyCodable? = nil)
-  public init(errorWithoutID: zano_ios.JSONRPCError)
-  public static func == (a: zano_ios.RPCResponse, b: zano_ios.RPCResponse) -> Swift.Bool
-}
-extension zano_ios.RPCResponse : Swift.Codable {
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-}
-public enum Either<L, R> {
-  case left(L)
-  case right(R)
-}
-extension zano_ios.Either {
-  public init(_ left: L)
-  public init(_ right: R)
-  public var left: L? {
-    get
-  }
-  public var right: R? {
-    get
-  }
-}
-extension zano_ios.Either : Swift.Equatable where L : Swift.Equatable, R : Swift.Equatable {
-  public static func == (lhs: zano_ios.Either<L, R>, rhs: zano_ios.Either<L, R>) -> Swift.Bool
-}
-extension zano_ios.Either : Swift.Hashable where L : Swift.Hashable, R : Swift.Hashable {
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension zano_ios.Either : Swift.Codable where L : Swift.Decodable, L : Swift.Encodable, R : Swift.Decodable, R : Swift.Encodable {
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-}
-extension zano_ios.Either : Swift.CustomStringConvertible {
-  public var description: Swift.String {
-    get
-  }
 }
 public enum ZANOError : Swift.Error {
   case errorResponse(code: Swift.String, message: Swift.String)
@@ -140,208 +39,3 @@ public enum ZANOError : Swift.Error {
   case unknown(message: Swift.String)
   case conversionFailure(message: Swift.String)
 }
-public struct SuccessResult : Swift.Codable {
-  public let returnCode: Swift.String
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct GetWalletFileResult : Swift.Codable {
-  public let items: [Swift.String]
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct WalletResult : Swift.Codable {
-  public let name: Swift.String
-  public let pass: Swift.String
-  public let recentHistory: zano_ios.RecentHistory
-  public let recovered: Swift.Bool
-  public let seed: Swift.String
-  public let walletFileSize: Swift.Int
-  public let walletID: Swift.Int
-  public let walletLocalBCSize: Swift.Int
-  public let walletInfo: zano_ios.WalletInfo
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct RecentHistory : Swift.Codable {
-  public let lastItemIndex: Swift.Int
-  public let totalHistoryItems: Swift.Int
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct WalletInfo : Swift.Codable {
-  public let address: Swift.String
-  public let balances: [zano_ios.Balance]
-  public let hasBareUnspentOutputs: Swift.Bool
-  public let isAuditable: Swift.Bool
-  public let isWatchOnly: Swift.Bool
-  public let minedTotal: Swift.Int
-  public let path: Swift.String
-  public let viewSecKey: Swift.String
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct Balance : Swift.Codable {
-  public let assetInfo: zano_ios.AssetInfo
-  public let awaitingIn: Swift.Int
-  public let awaitingOut: Swift.Int
-  public let total: Swift.Int
-  public let unlocked: Swift.Int
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct AssetInfo : Swift.Codable {
-  public let assetID: Swift.String
-  public let currentSupply: Swift.Int
-  public let decimalPoint: Swift.Int
-  public let fullName: Swift.String
-  public let hiddenSupply: Swift.Bool
-  public let metaInfo: Swift.String
-  public let owner: Swift.String
-  public let ticker: Swift.String
-  public let totalMaxSupply: Swift.Int
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct JobResult : Swift.Codable {
-  public let jobId: Swift.String
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct AddressInfo : Swift.Codable {
-  public let valid: Swift.Bool
-  public let auditable: Swift.Bool
-  public let paymentId: Swift.Bool
-  public let wrap: Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct AsyncResult : Swift.Codable {
-  public let status: zano_ios.AsyncSatus
-  public let result: zano_ios.RPCResponse
-  public var success: zano_ios.AsyncSuccessResponse? {
-    get
-  }
-  public var error: zano_ios.JSONRPCError? {
-    get
-  }
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct AsyncSuccessResponse : Swift.Codable {
-  public let status: zano_ios.AsyncSatus
-  public let balance: zano_ios.BalanceResult
-  public static func create(asyncResult: zano_ios.AsyncResult) throws -> zano_ios.AsyncSuccessResponse
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public enum AsyncSatus : Swift.String, Swift.Codable {
-  case delivered
-  case idle
-  case canceled
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public struct ConnectivityStatus : Swift.Codable {
-  public let isOnline: Swift.Bool
-  public let isServerBusy: Swift.Bool
-  public let lastDaemonIsDisconnected: Swift.Bool
-  public let lastProxyCommunicateTimestamp: Swift.Int
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct BalanceResult : Swift.Codable {
-  public let balance: Swift.Int
-  public let balances: [zano_ios.Balance]
-  public let unlocked_balance: Swift.Int
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct WalletSyncStatus : Swift.Codable {
-  public let currentDaemonHeight: Swift.Int
-  public let currentWalletHeight: Swift.Int
-  public let isDaemonConnected: Swift.Bool
-  public let isInLongRefresh: Swift.Bool
-  public let progress: Swift.Int
-  public let walletState: Swift.Int
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct AnyCodable {
-  public let value: Any
-  public init<C>(_ codable: C) where C : Swift.Decodable, C : Swift.Encodable
-  public init(any value: Any)
-  public func get<T>(_ type: T.Type) throws -> T where T : Swift.Decodable, T : Swift.Encodable
-  public var stringRepresentation: Swift.String {
-    get
-  }
-}
-extension zano_ios.AnyCodable : Swift.Equatable {
-  public static func == (lhs: zano_ios.AnyCodable, rhs: zano_ios.AnyCodable) -> Swift.Bool
-}
-extension zano_ios.AnyCodable : Swift.Hashable {
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension zano_ios.AnyCodable : Swift.CustomStringConvertible {
-  public var description: Swift.String {
-    get
-  }
-}
-extension zano_ios.AnyCodable : Swift.Decodable, Swift.Encodable {
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-}
-public enum AnyCodableError : Swift.Error {
-  case nullFound
-  public static func == (a: zano_ios.AnyCodableError, b: zano_ios.AnyCodableError) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public enum RPCResult : Swift.Codable, Swift.Equatable {
-  case response(zano_ios.AnyCodable)
-  case error(zano_ios.JSONRPCError)
-  public var value: any Swift.Decodable & Swift.Encodable {
-    get
-  }
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (a: zano_ios.RPCResult, b: zano_ios.RPCResult) -> Swift.Bool
-}
-public struct RPCRequest : Swift.Equatable {
-  public enum Error : Swift.Error {
-    case invalidPrimitiveParameter
-    public static func == (a: zano_ios.RPCRequest.Error, b: zano_ios.RPCRequest.Error) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  public static var defaultIdentifierGenerator: any zano_ios.IdentifierGenerator
-  public static func == (a: zano_ios.RPCRequest, b: zano_ios.RPCRequest) -> Swift.Bool
-}
-extension zano_ios.RPCRequest {
-  public static func notification<C>(method: Swift.String, params: C) -> zano_ios.RPCRequest where C : Swift.Decodable, C : Swift.Encodable
-  public static func notification(method: Swift.String) -> zano_ios.RPCRequest
-  public var isNotification: Swift.Bool {
-    get
-  }
-}
-extension zano_ios.RPCRequest : Swift.Codable {
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-}
-extension zano_ios.AsyncSatus : Swift.Equatable {}
-extension zano_ios.AsyncSatus : Swift.Hashable {}
-extension zano_ios.AsyncSatus : Swift.RawRepresentable {}
-extension zano_ios.AnyCodableError : Swift.Equatable {}
-extension zano_ios.AnyCodableError : Swift.Hashable {}
-extension zano_ios.RPCRequest.Error : Swift.Equatable {}
-extension zano_ios.RPCRequest.Error : Swift.Hashable {}
