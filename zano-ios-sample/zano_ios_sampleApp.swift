@@ -11,7 +11,18 @@ import SwiftUI
 struct zano_ios_sampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                    .tabItem {
+                        Label("Home", systemImage: "list.dash")
+                    }
+                
+                SettingsScreen()
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
+            }
+            
         }
     }
 }
