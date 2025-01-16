@@ -192,6 +192,19 @@ public struct BalanceResult: Codable {
     public let unlocked_balance: Int
 }
 
+
+struct TransferResponse: Codable {
+    let txHash: String
+    let txSize: Int
+    let txUnsignedHex: String
+    
+    enum CodingKeys: String, CodingKey {
+        case txHash = "tx_hash"
+        case txSize = "tx_size"
+        case txUnsignedHex = "tx_unsigned_hex"
+    }
+}
+
 public struct WalletSyncStatus: Codable {
     public let currentDaemonHeight: Int
     public let currentWalletHeight: Int
