@@ -187,8 +187,14 @@ public enum ZanoWallet {
         let jsonStr = String(String(ZanoCore.try_pull_result(jobId)))
         return jsonStr
     }
-
     
+    // https://docs.zano.org/docs/build/rpc-api/wallet-rpc-api/transfer
+    public static func asyncTransfer(jobId: UInt64) async -> String {
+        debugPrint("\(#function) starts")
+        let jsonStr = String(String(ZanoCore.try_pull_result(jobId)))
+        return jsonStr
+    }
+
     // required to get JobId from asyncCall
     // response can be "{\"status\": \"idle\"}"
     public static func asyncOpen(jobId: UInt64) async -> String {

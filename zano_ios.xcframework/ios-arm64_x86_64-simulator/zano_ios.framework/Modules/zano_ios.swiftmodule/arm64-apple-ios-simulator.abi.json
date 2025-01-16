@@ -576,6 +576,35 @@
           },
           {
             "kind": "Function",
+            "name": "asyncTransfer",
+            "printedName": "asyncTransfer(jobId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:8zano_ios10ZanoWalletO13asyncTransfer5jobIdSSs6UInt64V_tYaFZ",
+            "mangledName": "$s8zano_ios10ZanoWalletO13asyncTransfer5jobIdSSs6UInt64V_tYaFZ",
+            "moduleName": "zano_ios",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "asyncOpen",
             "printedName": "asyncOpen(jobId:)",
             "children": [

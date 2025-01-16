@@ -182,6 +182,17 @@ class ZanoService {
         
     }
     
+    public func asyncTransfer(jobId: UInt64) async throws -> TransferResponse {
+        let jsonStr = await ZanoWallet.asyncTransfer(jobId: jobId)
+
+        guard let jsonData = jsonStr.data(using: .utf8) else {
+            throw ZANOError.conversionFailure(message: "")
+        }
+
+        let result = try JSONRPCParser.parseResponse(jsonData: jsonData, resultType: TransferResponse.self)
+        return result
+    }
+    
     public func asyncOpen(jobId: UInt64) async throws -> AsyncOpenSuccessResponse {
         let jsonStr = await ZanoWallet.asyncOpen(jobId: jobId)
         guard let jsonData = jsonStr.data(using: .utf8) else {
