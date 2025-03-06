@@ -1,36 +1,3 @@
-// Copyright (c) 2014-2023 Zano Project
-// Distributed under the MIT/X11 software license, see the accompanying
-// file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-#pragma once
-
-
-
-//Wallet Debug Events
-struct wde_construct_tx_handle_asset_descriptor_operation
-{
-  currency::asset_descriptor_operation* pado;
-};
-
-
-struct wde_construct_tx_handle_asset_descriptor_operation_before_seal
-{
-  currency::asset_descriptor_operation* pado;
-};
-
-struct wde_construct_tx_handle_asset_descriptor_operation_before_burn
-{
-  currency::asset_descriptor_operation* pado;
-};
-
-
-
-struct wde_construct_tx_after_asset_ownership_proof_generated
-{
-  currency::asset_operation_ownership_proof* pownership_proof;
-};
-
-struct wde_construct_tx_after_asset_ownership_eth_proof_generated
-{
-  currency::asset_operation_ownership_proof_eth* pownership_proof_eth;
-};
+version https://git-lfs.github.com/spec/v1
+oid sha256:1fb0165f5f1d3ece03d0e681cdedb1ddce6d87df8a5cf4c02023324fd0546b3f
+size 852
