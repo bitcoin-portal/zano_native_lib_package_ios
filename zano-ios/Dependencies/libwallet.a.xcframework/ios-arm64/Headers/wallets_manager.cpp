@@ -201,7 +201,9 @@ bool wallets_manager::init_command_line(int argc, char* argv[], std::string& fai
   currency::core::init_options(desc_cmd_sett);
   currency::core_rpc_server::init_options(desc_cmd_sett);
   nodetool::node_server<currency::t_currency_protocol_handler<currency::core> >::init_options(desc_cmd_sett);
+#ifdef CPU_MINING_ENABLED
   currency::miner::init_options(desc_cmd_sett);
+#endif
   bc_services::bc_offers_service::init_options(desc_cmd_sett);
   tools::db::db_backend_selector::init_options(desc_cmd_sett);
 #endif
@@ -395,7 +397,13 @@ bool wallets_manager::start()
   CATCH_ENTRY_L0("main", false);
  }
 
-
+std::string wallets_manager::set_remote_node_url(const std::string& url)
+{
+  if (m_rpc_proxy)
+    m_rpc_proxy->set_connection_addr(url);
+  
+  return API_RETURN_CODE_OK;
+}
 
 bool wallets_manager::stop()
 {
@@ -1045,7 +1053,8 @@ std::string wallets_manager::open_wallet(const std::wstring& path, const std::st
   w->set_use_deffered_global_outputs(m_use_deffered_global_outputs);
   owr.wallet_id = m_wallet_id_counter++;
 
-  w->callback(std::shared_ptr<tools::i_wallet2_callback>(new i_wallet_to_i_backend_adapter(this, owr.wallet_id)));
+  std::shared_ptr<tools::i_wallet2_callback> w_cb{new i_wallet_to_i_backend_adapter(this, owr.wallet_id)};
+  w->callback(w_cb);
   if (m_remote_node_mode)
   {
     w->set_core_proxy(m_rpc_proxy);
@@ -1079,6 +1088,13 @@ std::string wallets_manager::open_wallet(const std::wstring& path, const std::st
 
       //workaround for missed fee
       owr.seed = w->get_account().get_seed_phrase("");
+      auto& keys = w->get_account().get_keys();
+
+      owr.private_view_key = epee::string_tools::pod_to_hex(keys.view_secret_key);
+      owr.public_view_key  = epee::string_tools::pod_to_hex(keys.account_address.view_public_key);
+      owr.private_spend_key = epee::string_tools::pod_to_hex(keys.spend_secret_key);
+      owr.public_spend_key = epee::string_tools::pod_to_hex(keys.account_address.spend_public_key);
+      // open_wallet_response
       break;
     }
     catch (const tools::error::file_not_found& /**/)
@@ -1106,6 +1122,7 @@ std::string wallets_manager::open_wallet(const std::wstring& path, const std::st
   EXCLUSIVE_CRITICAL_REGION_LOCAL(m_wallets_lock);
   wallet_vs_options& wo = m_wallets[owr.wallet_id];
   **wo.w = w;
+  wo.w_cb = w_cb;
   owr.wallet_file_size = w->get_wallet_file_size();
   get_wallet_info(wo, owr.wi);
   init_wallet_entry(wo, owr.wallet_id);
@@ -1189,6 +1206,12 @@ std::string wallets_manager::generate_wallet(const std::wstring& path, const std
     w->generate(path, password, false);
     w->set_minimum_height(m_last_daemon_height-1);
     owr.seed = w->get_account().get_seed_phrase("");
+    auto& keys = w->get_account().get_keys();
+
+    owr.private_view_key = epee::string_tools::pod_to_hex(keys.view_secret_key);
+    owr.public_view_key  = epee::string_tools::pod_to_hex(keys.account_address.view_public_key);
+    owr.private_spend_key = epee::string_tools::pod_to_hex(keys.spend_secret_key);
+    owr.public_spend_key = epee::string_tools::pod_to_hex(keys.account_address.spend_public_key);
   }
   catch (const tools::error::file_exists&)
   {
@@ -1298,6 +1321,12 @@ std::string wallets_manager::restore_wallet(const std::wstring& path, const std:
     bool is_tracking = currency::account_base::is_seed_tracking(seed_phrase);
     w->restore(path, password, seed_phrase, is_tracking, seed_password);
     owr.seed = w->get_account().get_seed_phrase("");
+    auto& keys = w->get_account().get_keys();
+
+    owr.private_view_key = epee::string_tools::pod_to_hex(keys.view_secret_key);
+    owr.public_view_key  = epee::string_tools::pod_to_hex(keys.account_address.view_public_key);
+    owr.private_spend_key = epee::string_tools::pod_to_hex(keys.spend_secret_key);
+    owr.public_spend_key = epee::string_tools::pod_to_hex(keys.account_address.spend_public_key);
   }
   catch (const tools::error::file_exists&)
   {
@@ -1627,10 +1656,11 @@ bool wallets_manager::get_is_remote_daemon_connected()
 
 std::string wallets_manager::get_connectivity_status()
 {
-  view::general_connectivity_info gci = AUTO_VAL_INIT(gci);
+  view::general_connectivity_info gci{};
   gci.is_online = get_is_remote_daemon_connected();
   gci.last_daemon_is_disconnected = m_pproxy_diganostic_info->last_daemon_is_disconnected;
   gci.is_server_busy = m_pproxy_diganostic_info->is_busy;
+  gci.is_remote_node_mode = m_remote_node_mode;
   gci.last_proxy_communicate_timestamp = m_rpc_proxy->get_last_success_interract_time();
   return epee::serialization::store_t_to_json(gci);
 }
@@ -1921,7 +1951,10 @@ std::string wallets_manager::stop_pos_mining(uint64_t wallet_id)
 std::string wallets_manager::run_wallet(uint64_t wallet_id)
 {
   GET_WALLET_OPT_BY_ID(wallet_id, wo);
-  wo.miner_thread = std::thread(boost::bind(&wallets_manager::wallet_vs_options::worker_func, &wo));
+  if (!wo.major_stop && !wo.miner_thread.joinable())
+  {
+    wo.miner_thread = std::thread(boost::bind(&wallets_manager::wallet_vs_options::worker_func, &wo));
+  }  
   return API_RETURN_CODE_OK;
 }
 

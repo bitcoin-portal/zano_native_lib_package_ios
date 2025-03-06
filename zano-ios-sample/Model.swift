@@ -245,8 +245,8 @@ public struct ZANOConst {
         "insult understand back vein peaceful somewhere bare deeply anyone hunger wait prince shoot grip scream bowl mama card dread less sadness angry explore almost worry dim"
     public static let TEST_WALLET_ADDRESS =
         "ZxCx5QqAh67JwX7F2hs7M2FcJ3bcLEhWfb2yqiofDeWn67guYBA4fwb1ekbsp7vZid35fVJtY6E2iiWVUJWRkyQu1Mchqr3iE"
-    public static let ZANO_MAINNET_IP = "195.201.107.230"
-    public static let ZANO_MAINNET_PORT = "33340"
+    public static let ZANO_MAINNET_IP = "zano.api.wombat.systems"
+    public static let ZANO_MAINNET_PORT = "443"
     public static let TEST_WALLET_NAME_2 = "testWallet2"
     public static let TEST_WALLET_PASSWORD_2 = "testWalletPassword2"
 }

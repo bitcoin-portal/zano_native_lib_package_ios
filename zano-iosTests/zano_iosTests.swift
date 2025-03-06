@@ -18,9 +18,9 @@ class zano_iosTests: XCTestCase {
     }
 
     func testZANOVerssion() throws {
-        XCTAssertEqual(ZanoWallet.getVersion(), "2.0.0.336[132d2bf]")
+        XCTAssertEqual(ZanoWallet.getVersion(), "2.1.0.382[571897a]")
     }
-    
+//    
     func testHelloWorld() throws {
         XCTAssertEqual(HelloWorld.test(), "This is a test string from ZanoString.")
     }
@@ -29,23 +29,90 @@ class zano_iosTests: XCTestCase {
         XCTAssertEqual(ZanoWallet.getLogsBuffer(), "")
     }
     
+    /*
+     
+     XCTAssertEqual failed: ("{
+       "id": 0,
+       "jsonrpc": "",
+       "result": {
+         "return_code": "OK"
+       }
+     }") is not equal to ("{
+       "id": 0,
+       "jsonrpc": "",
+       "result": {
+         "return_code": "OK"
+       }
+     }")
+     */
+    
+//
+//    XCTAssertEqual failed: ("{
+//      "id": 0,
+//      "jsonrpc": "",
+//      "result": {
+//        "return_code": "OK"
+//      }
+//    }") is not equal to (""{
+//      "id": 0,
+//      "jsonrpc": "",
+//      "result": {
+//        "return_code": "OK"
+//      }
+//    }"")
+//    
+    
     func testTruncateLog() throws {
-        let result = ZanoWallet.truncateLog()
-        XCTAssertEqual(result, "OK")
+        /*
+         {
+           "id": 0,
+           "jsonrpc": "",
+           "result": {
+             "return_code": "OK"
+           }
+         }
+         */
+        let result = jsonStringToDictionary(ZanoWallet.truncateLog())
+        let returnCode = (result?["result"] as? [String: Any])?["return_code"] as? String
+        XCTAssertEqual(result?["id"] as? Int, 0)
+        XCTAssertEqual(result?["jsonrpc"] as? String, "")
+        XCTAssertEqual(returnCode, "OK")
     }
 
     func testInit() throws {
+        /*
+         {
+           "id": 0,
+           "jsonrpc": "",
+           "result": {
+             "return_code": "OK"
+           }
+         }
+         */
+
         let fileManager = FileManager.default
 
         let docsDir = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 
-        let result = ZanoWallet.InitIpPort(ip: "195.201.107.230", port: "33336", working_dir: docsDir.path, log_level: 0)
-        XCTAssertEqual(result, "OK")
+        let result = jsonStringToDictionary((ZanoWallet.InitIpPort(ip: "zano.api.wombat.systems", port: "443", working_dir: docsDir.path, log_level: 0)))
+        let returnCode = (result?["result"] as? [String: Any])?["return_code"] as? String
+        XCTAssertEqual(result?["id"] as? Int, 0)
+        XCTAssertEqual(result?["jsonrpc"] as? String, "")
+        XCTAssertEqual(returnCode, "OK")
+
     }
     
     func testGetTransactionFee() throws {
         let fee = ZanoWallet.getCurrentTxFee(priority: 0)
         XCTAssertEqual(fee, 10000000000)
+    }
+    
+    func jsonStringToDictionary(_ jsonString: String) -> [String: Any]? {
+        guard let data = jsonString.data(using: .utf8),
+              let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            return nil
+        }
+        return jsonObject
     }
 }
 

@@ -103,8 +103,8 @@ class ZanoService {
         return result
     }
     
-    public func getOpenedWallets() throws -> [WalletResult] {
-        let jsonStr = ZanoWallet.getOpenedWallets()
+    public func getOpenedWallets() async throws -> [WalletResult] {
+        let jsonStr = await ZanoWallet.getOpenedWallets()
         guard let jsonData = jsonStr.data(using: .utf8) else {
             throw ZANOError.conversionFailure(message: "")
         }

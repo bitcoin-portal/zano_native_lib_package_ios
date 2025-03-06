@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C17F2E92D7974ED007EF7A1 /* libcurrency_core.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C17F2E52D7974ED007EF7A1 /* libcurrency_core.a.xcframework */; };
+		6C17F2EA2D7974ED007EF7A1 /* libwallet.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C17F2E72D7974ED007EF7A1 /* libwallet.a.xcframework */; };
+		6C17F2EB2D7974ED007EF7A1 /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C17F2E32D7974ED007EF7A1 /* libcrypto.xcframework */; };
+		6C17F2EC2D7974ED007EF7A1 /* libcommon.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C17F2E22D7974ED007EF7A1 /* libcommon.a.xcframework */; };
+		6C17F2ED2D7974ED007EF7A1 /* libboost.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C17F2E12D7974ED007EF7A1 /* libboost.xcframework */; };
+		6C17F2EE2D7974ED007EF7A1 /* libcrypto_.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C17F2E42D7974ED007EF7A1 /* libcrypto_.a.xcframework */; };
+		6C17F2EF2D7974ED007EF7A1 /* libssl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C17F2E62D7974ED007EF7A1 /* libssl.xcframework */; };
+		6C17F2F02D7974ED007EF7A1 /* libz.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C17F2E82D7974ED007EF7A1 /* libz.a.xcframework */; };
 		6C1C22C02CAE16030044307D /* zano_ios.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C91C9912C9408A90002E766 /* zano_ios.xcframework */; };
-		6C1C22CA2CAE18C50044307D /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C42CAE18C50044307D /* libcrypto.xcframework */; };
-		6C1C22CB2CAE18C50044307D /* libssl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C72CAE18C50044307D /* libssl.xcframework */; };
-		6C1C22CC2CAE18C50044307D /* libcommon.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C32CAE18C50044307D /* libcommon.a.xcframework */; };
-		6C1C22CD2CAE18C50044307D /* libwallet.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C82CAE18C50044307D /* libwallet.a.xcframework */; };
-		6C1C22CE2CAE18C50044307D /* libcrypto_.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C52CAE18C50044307D /* libcrypto_.a.xcframework */; };
-		6C1C22CF2CAE18C50044307D /* libcurrency_core.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C62CAE18C50044307D /* libcurrency_core.a.xcframework */; };
-		6C1C22D02CAE18C50044307D /* libz.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C92CAE18C50044307D /* libz.a.xcframework */; };
-		6C1C22D12CAE18C50044307D /* libboost.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1C22C22CAE18C50044307D /* libboost.xcframework */; };
 		6C4001602CC098BA004D5511 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C40015F2CC098BA004D5511 /* Model.swift */; };
 		6C61F9862CB6434800053E5F /* ZanoString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C61F9842CB6434800053E5F /* ZanoString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C61F9872CB6434800053E5F /* ZanoString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9852CB6434800053E5F /* ZanoString.mm */; };
@@ -86,14 +86,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6C1C22C22CAE18C50044307D /* libboost.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libboost.xcframework; sourceTree = "<group>"; };
-		6C1C22C32CAE18C50044307D /* libcommon.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcommon.a.xcframework; sourceTree = "<group>"; };
-		6C1C22C42CAE18C50044307D /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcrypto.xcframework; sourceTree = "<group>"; };
-		6C1C22C52CAE18C50044307D /* libcrypto_.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcrypto_.a.xcframework; sourceTree = "<group>"; };
-		6C1C22C62CAE18C50044307D /* libcurrency_core.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcurrency_core.a.xcframework; sourceTree = "<group>"; };
-		6C1C22C72CAE18C50044307D /* libssl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libssl.xcframework; sourceTree = "<group>"; };
-		6C1C22C82CAE18C50044307D /* libwallet.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libwallet.a.xcframework; sourceTree = "<group>"; };
-		6C1C22C92CAE18C50044307D /* libz.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libz.a.xcframework; sourceTree = "<group>"; };
+		6C17F2E12D7974ED007EF7A1 /* libboost.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libboost.xcframework; sourceTree = "<group>"; };
+		6C17F2E22D7974ED007EF7A1 /* libcommon.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcommon.a.xcframework; sourceTree = "<group>"; };
+		6C17F2E32D7974ED007EF7A1 /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcrypto.xcframework; sourceTree = "<group>"; };
+		6C17F2E42D7974ED007EF7A1 /* libcrypto_.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcrypto_.a.xcframework; sourceTree = "<group>"; };
+		6C17F2E52D7974ED007EF7A1 /* libcurrency_core.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcurrency_core.a.xcframework; sourceTree = "<group>"; };
+		6C17F2E62D7974ED007EF7A1 /* libssl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libssl.xcframework; sourceTree = "<group>"; };
+		6C17F2E72D7974ED007EF7A1 /* libwallet.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libwallet.a.xcframework; sourceTree = "<group>"; };
+		6C17F2E82D7974ED007EF7A1 /* libz.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libz.a.xcframework; sourceTree = "<group>"; };
 		6C1C22D72CAE209A0044307D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		6C40015F2CC098BA004D5511 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6C61F9842CB6434800053E5F /* ZanoString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZanoString.h; sourceTree = "<group>"; };
@@ -136,14 +136,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C1C22CA2CAE18C50044307D /* libcrypto.xcframework in Frameworks */,
-				6C1C22CB2CAE18C50044307D /* libssl.xcframework in Frameworks */,
-				6C1C22CC2CAE18C50044307D /* libcommon.a.xcframework in Frameworks */,
-				6C1C22CD2CAE18C50044307D /* libwallet.a.xcframework in Frameworks */,
-				6C1C22CE2CAE18C50044307D /* libcrypto_.a.xcframework in Frameworks */,
-				6C1C22CF2CAE18C50044307D /* libcurrency_core.a.xcframework in Frameworks */,
-				6C1C22D02CAE18C50044307D /* libz.a.xcframework in Frameworks */,
-				6C1C22D12CAE18C50044307D /* libboost.xcframework in Frameworks */,
+				6C17F2E92D7974ED007EF7A1 /* libcurrency_core.a.xcframework in Frameworks */,
+				6C17F2EA2D7974ED007EF7A1 /* libwallet.a.xcframework in Frameworks */,
+				6C17F2EB2D7974ED007EF7A1 /* libcrypto.xcframework in Frameworks */,
+				6C17F2EC2D7974ED007EF7A1 /* libcommon.a.xcframework in Frameworks */,
+				6C17F2ED2D7974ED007EF7A1 /* libboost.xcframework in Frameworks */,
+				6C17F2EE2D7974ED007EF7A1 /* libcrypto_.a.xcframework in Frameworks */,
+				6C17F2EF2D7974ED007EF7A1 /* libssl.xcframework in Frameworks */,
+				6C17F2F02D7974ED007EF7A1 /* libz.a.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,14 +183,14 @@
 		6C1C22C12CAE18AD0044307D /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				6C1C22C22CAE18C50044307D /* libboost.xcframework */,
-				6C1C22C32CAE18C50044307D /* libcommon.a.xcframework */,
-				6C1C22C42CAE18C50044307D /* libcrypto.xcframework */,
-				6C1C22C52CAE18C50044307D /* libcrypto_.a.xcframework */,
-				6C1C22C62CAE18C50044307D /* libcurrency_core.a.xcframework */,
-				6C1C22C72CAE18C50044307D /* libssl.xcframework */,
-				6C1C22C82CAE18C50044307D /* libwallet.a.xcframework */,
-				6C1C22C92CAE18C50044307D /* libz.a.xcframework */,
+				6C17F2E12D7974ED007EF7A1 /* libboost.xcframework */,
+				6C17F2E22D7974ED007EF7A1 /* libcommon.a.xcframework */,
+				6C17F2E32D7974ED007EF7A1 /* libcrypto.xcframework */,
+				6C17F2E42D7974ED007EF7A1 /* libcrypto_.a.xcframework */,
+				6C17F2E52D7974ED007EF7A1 /* libcurrency_core.a.xcframework */,
+				6C17F2E62D7974ED007EF7A1 /* libssl.xcframework */,
+				6C17F2E72D7974ED007EF7A1 /* libwallet.a.xcframework */,
+				6C17F2E82D7974ED007EF7A1 /* libz.a.xcframework */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -915,9 +915,9 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
@@ -954,9 +954,9 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;

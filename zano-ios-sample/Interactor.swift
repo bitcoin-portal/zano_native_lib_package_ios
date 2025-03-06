@@ -72,7 +72,7 @@ class Interactor {
     
     func getOpenedWallets() async -> [WalletResult] {
         do {
-            return try ZanoService.shared.getOpenedWallets()
+            return try await ZanoService.shared.getOpenedWallets()
         } catch {
             debugPrint("getOpenedWallets throws \(error.localizedDescription)")
             return []

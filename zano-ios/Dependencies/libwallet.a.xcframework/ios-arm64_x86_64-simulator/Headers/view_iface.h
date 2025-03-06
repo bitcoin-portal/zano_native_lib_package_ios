@@ -452,6 +452,10 @@ public:
     transfers_array recent_history;
     wallet_info wi;
     std::string seed;
+    std::string private_spend_key;
+    std::string private_view_key;
+    std::string public_spend_key;
+    std::string public_view_key;
     bool recovered;
     uint64_t wallet_local_bc_size;
     uint64_t wallet_file_size;
@@ -463,6 +467,10 @@ public:
       KV_SERIALIZE(recent_history)
       KV_SERIALIZE(wi)
       KV_SERIALIZE(seed)
+      KV_SERIALIZE(private_spend_key)
+      KV_SERIALIZE(private_view_key)
+      KV_SERIALIZE(public_spend_key)
+      KV_SERIALIZE(public_view_key)
       KV_SERIALIZE(recovered)
       KV_SERIALIZE(wallet_local_bc_size)
       KV_SERIALIZE(wallet_file_size)
@@ -484,12 +492,14 @@ public:
     bool is_online;
     bool last_daemon_is_disconnected;
     bool is_server_busy;
+    bool is_remote_node_mode;
     uint64_t last_proxy_communicate_timestamp;
 
     BEGIN_KV_SERIALIZE_MAP()
       KV_SERIALIZE(is_online)
-      KV_SERIALIZE(is_server_busy)
       KV_SERIALIZE(last_daemon_is_disconnected)
+      KV_SERIALIZE(is_server_busy)
+      KV_SERIALIZE(is_remote_node_mode)
       KV_SERIALIZE(last_proxy_communicate_timestamp)
     END_KV_SERIALIZE_MAP()
   };

@@ -91,6 +91,11 @@ public enum ZanoWallet {
         return jsonStr
     }
     
+    public static func setLogLevel(level: Int32) -> String {
+        let response = String(ZanoCore.set_log_level(level: level))
+        return response
+    }
+    
     // MARK: - Wallet Management Functions
     public static func restore(seed: String, walletName: String, password: String, seed_password:String) -> String {
         debugPrint("\(#function) starts")
@@ -123,7 +128,7 @@ public enum ZanoWallet {
     }
     
     // response can be "{\r\n  \"id\": 0,\r\n  \"jsonrpc\": \"\"\r\n}"
-    public static func getOpenedWallets() -> String {
+    public static func getOpenedWallets() async -> String {
         debugPrint("\(#function) starts")
         let jsonStr = String(ZanoCore.get_opened_wallets())
         return jsonStr
@@ -194,7 +199,7 @@ public enum ZanoWallet {
         let jsonStr = String(String(ZanoCore.try_pull_result(jobId)))
         return jsonStr
     }
-
+    
     // required to get JobId from asyncCall
     // response can be "{\"status\": \"idle\"}"
     public static func asyncOpen(jobId: UInt64) async -> String {
