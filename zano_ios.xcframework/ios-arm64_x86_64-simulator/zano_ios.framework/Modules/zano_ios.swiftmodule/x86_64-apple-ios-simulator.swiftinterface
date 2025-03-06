@@ -21,6 +21,7 @@ public enum ZanoWallet {
   public static func getLogsBuffer() -> Swift.String
   public static func truncateLog() -> Swift.String
   public static func getConnectivityStatus() -> Swift.String
+  public static func setLogLevel(level: Swift.Int32) -> Swift.String
   public static func restore(seed: Swift.String, walletName: Swift.String, password: Swift.String, seed_password: Swift.String) -> Swift.String
   public static func generate(walletName: Swift.String, password: Swift.String) -> Swift.String
   public static func getOpenedWallets() async -> Swift.String
@@ -30,7 +31,6 @@ public enum ZanoWallet {
   public static func asyncRestore(jobId: Swift.UInt64) async -> Swift.String
   public static func asyncGetBalance(jobId: Swift.UInt64) async -> Swift.String
   public static func asyncTransfer(jobId: Swift.UInt64) async -> Swift.String
-  public static func asyncStore(jobId: Swift.UInt64) async -> Swift.String
   public static func asyncOpen(jobId: Swift.UInt64) async -> Swift.String
   public static func asyncClose(jobId: Swift.UInt64) async throws -> Swift.String
   public static func getCurrentTxFee(priority: Swift.UInt64) -> Swift.UInt64

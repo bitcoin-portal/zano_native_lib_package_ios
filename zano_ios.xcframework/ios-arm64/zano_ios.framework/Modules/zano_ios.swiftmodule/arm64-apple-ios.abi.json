@@ -314,6 +314,34 @@
           },
           {
             "kind": "Function",
+            "name": "setLogLevel",
+            "printedName": "setLogLevel(level:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:8zano_ios10ZanoWalletO11setLogLevel5levelSSs5Int32V_tFZ",
+            "mangledName": "$s8zano_ios10ZanoWalletO11setLogLevel5levelSSs5Int32V_tFZ",
+            "moduleName": "zano_ios",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "restore",
             "printedName": "restore(seed:walletName:password:seed_password:)",
             "children": [
@@ -595,35 +623,6 @@
             "declKind": "Func",
             "usr": "s:8zano_ios10ZanoWalletO13asyncTransfer5jobIdSSs6UInt64V_tYaFZ",
             "mangledName": "$s8zano_ios10ZanoWalletO13asyncTransfer5jobIdSSs6UInt64V_tYaFZ",
-            "moduleName": "zano_ios",
-            "static": true,
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "asyncStore",
-            "printedName": "asyncStore(jobId:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UInt64",
-                "printedName": "Swift.UInt64",
-                "usr": "s:s6UInt64V"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:8zano_ios10ZanoWalletO10asyncStore5jobIdSSs6UInt64V_tYaFZ",
-            "mangledName": "$s8zano_ios10ZanoWalletO10asyncStore5jobIdSSs6UInt64V_tYaFZ",
             "moduleName": "zano_ios",
             "static": true,
             "declAttributes": [
@@ -1097,5 +1096,13 @@
     ],
     "json_format_version": 8
   },
-  "ConstValues": []
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/jumpei\/repo\/github.com\/bitcoin-portal\/zano_native_lib_package_ios\/zano-ios\/Internal\/ZanoCore.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1715,
+      "length": 1,
+      "value": "0"
+    }
+  ]
 }
