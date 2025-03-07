@@ -1,19 +1,32 @@
-# zano_native_lib_packages
+# zano_native_lib_packages  
 
-## How to generate xcframeworks for your ios app
-### Prerequisites
-1. go to https://github.com/hyle-team/zano_native_lib_package_ios and clone the repo
-2. Move the xcframeworks in https://github.com/hyle-team/zano_native_lib_package_ios/tree/main/Dependencies to your ios app project. 
-(You can also generate the dependencies from https://github.com/hyle-team/zano_native_lib_package_)
+A Swift wrapper around the Zano C++ library. Use it to create iOS apps that interact with the Zano wallet.  
 
-* this step can be omitted and we can track the dependencies instead if the size  of the dependencies is smaller than 100MB or we pay for github lfs.
+## How to Generate XCFrameworks for Your iOS App  
 
-### Generate xcframeworks for your ios app (Swift)
-1. Run `./script.sh`. this generates `zano_ios.xcframework` in the project directory
-2. Move zano_ios.xcframework to your ios app project
+### Prerequisites  
 
+1. Clone the repository:  
+   ```sh
+   git clone https://github.com/hyle-team/zano_native_lib_package_ios
+   ```
+2. Move the XCFrameworks from the [`Dependencies`](https://github.com/hyle-team/zano_native_lib_package_ios/tree/main/Dependencies) folder into your iOS app project.  
+   - Alternatively, you can generate the dependencies from [`zano_native_lib_package_`](https://github.com/hyle-team/zano_native_lib_package_).  
 
-### Set up embedded binaries
-1. Go to your project settings
-2. Select general
-3. Change the option for the embedded binaries to `Embed & Sign` (Other wise app carashes for the production build)
+   **Note:** This step can be skipped if the dependencies are under 100MB, or if we use GitHub LFS for larger files.  
+
+### Generating XCFrameworks for Your iOS App (Swift)  
+
+1. Run the script:  
+   ```sh
+   ./script.sh
+   ```
+   This will generate `zano_ios.xcframework` in the project directory.  
+2. Move `zano_ios.xcframework` to your iOS app project.  
+
+### Setting Up Embedded Binaries  
+
+1. Open your project settings in Xcode.  
+2. Go to the **General** tab.  
+3. Under **Embedded Binaries**, set `zano_ios.xcframework` to **Embed & Sign**.  
+   - This prevents crashes in production builds.  
