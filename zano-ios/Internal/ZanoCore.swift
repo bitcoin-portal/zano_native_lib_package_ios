@@ -41,8 +41,8 @@ enum ZanoCore {
         }
         
         //        std::string set_log_level(int log_level);
-        static func set_log_level() -> CxxStdlib.std.string {
-            plain_wallet.set_log_level(0)
+        static func set_log_level(level: Int32 = 0) -> CxxStdlib.std.string {
+            plain_wallet.set_log_level(level)
         }
         
         //        std::string get_version();
