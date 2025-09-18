@@ -789,6 +789,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_CPLUSPLUSFLAGS = "-fmodule-map-file=$(SRCROOT)/zano-ios/module.modulemap";
 				OTHER_SWIFT_FLAGS = "-cxx-interoperability-mode=default";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitcoin.zano-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -843,6 +844,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_CPLUSPLUSFLAGS = "-fmodule-map-file=$(SRCROOT)/zano-ios/module.modulemap";
 				OTHER_SWIFT_FLAGS = "-cxx-interoperability-mode=default";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitcoin.zano-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
