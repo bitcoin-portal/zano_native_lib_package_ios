@@ -14,59 +14,51 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		azXfPiL97PZdszHi4GpkeQjCNQo=
+		yuRFNRPxZ0X6GjBO8Ik4tp7Fmpg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		S0Ldg7SWXjjYP3t6GKP1GZwMyL0=
 		</data>
-		<key>Modules/zano_ios.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
-		<data>
-		du+b/UBUr/h8p39CzOI+pq+UMl0=
-		</data>
-		<key>Modules/zano_ios.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
-		<data>
-		G2m0IliF1sb7PGxYotwhbf+WcjA=
-		</data>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		iZg/5YD+w7d381AUmfAxlaAShLU=
+		91+AqnpUi13SFNM0pqagkXS0e+U=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		CUpP+LZaYmOuT22n4RzC/B31/60=
+		GFiyiOz9LUVoSTQ194zmW13LiMQ=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		6FESiDHQpOSzdNsKjBCefo+Apag=
+		HLza28zWWkmE8mnm4qhy+gpCyJY=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		CUpP+LZaYmOuT22n4RzC/B31/60=
+		GFiyiOz9LUVoSTQ194zmW13LiMQ=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		SGuzAHk2GyiOIp5gMGZrI3zpd3s=
+		2fPFv8h0eTOmsaf/036x8I/hsUQ=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		iZg/5YD+w7d381AUmfAxlaAShLU=
+		91+AqnpUi13SFNM0pqagkXS0e+U=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		r/tUagwRtmbEVFOe5cGs1ShWXeM=
+		PrDJOnAVoEzGTH/+0tXrFg6uauE=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		jrkhBZCxwULnIiWq0t7w5XcoMMU=
+		JkKuks92z1SpYEfMezX0DwZyp80=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		r/tUagwRtmbEVFOe5cGs1ShWXeM=
+		PrDJOnAVoEzGTH/+0tXrFg6uauE=
 		</data>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		MBuPmEwOFbcex5eddeRw0lLBQ+Y=
+		YUBSwK14DsMtasj8+yFhVMcrCRM=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -92,88 +84,74 @@
 			8j052lKVAjtlOKiDNgUFls7d8Mich2PbJRsAv9+yTJk=
 			</data>
 		</dict>
-		<key>Modules/zano_ios.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ZRVCazMkcge9Fpw/qYFXQfnDUiSZOMfzjz/4T7RH7Bk=
-			</data>
-		</dict>
-		<key>Modules/zano_ios.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			oo/YYF0pTEBzbVC2qrViznnyK7aRAtP+VlR0ywI1F5E=
-			</data>
-		</dict>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jdzC8tp+A7O3mqVBFltMr7IXPJRrI99aWaSbwOO/a3Y=
+			47DoXjwbPNTpn9BdWJNWtvhwVn1VbeWNM5Xb7ZmQV0U=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			H7Z1ol1jLFwxMP97ogBqdADy6jv/a+2bG80gb/pVAkI=
+			jdUpcEFqhEJ/VfLp+HY4XIksm6nrxpzn3D3jfk5ZADQ=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xalHpyMFv4wcA/kDYqB+FBv/Nmlv6ajaXDrrcZ95w04=
+			6VRjmfriNRjkPGM82Y+AIn0nZm2yVhkKWnx2SSgtSHQ=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			H7Z1ol1jLFwxMP97ogBqdADy6jv/a+2bG80gb/pVAkI=
+			jdUpcEFqhEJ/VfLp+HY4XIksm6nrxpzn3D3jfk5ZADQ=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ni18Ua0S6upaRIiQc+c+VplkQr7ad0w5T+38RXViWyE=
+			dQigpNxIn54JYvIlgNxzhSeyA/Y2z2Wo/NoqnKOJ0pE=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jdzC8tp+A7O3mqVBFltMr7IXPJRrI99aWaSbwOO/a3Y=
+			47DoXjwbPNTpn9BdWJNWtvhwVn1VbeWNM5Xb7ZmQV0U=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wxXQ9C+5m7ztv+EEOlNEb+b3SHO6RvWnnh5ZMYclLMk=
+			L3wQ72fY9WBjwBMlLc+pQRLAuSYc5pWqHIcXN5Pjt/g=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			H323ea76TwNzYiez0Z6n8yObFnwoILkPLHulTvlLJ7Q=
+			43ux1XRmziwZmSx20TOhWK789gH9QN8ZUm7mJUBmEKk=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wxXQ9C+5m7ztv+EEOlNEb+b3SHO6RvWnnh5ZMYclLMk=
+			L3wQ72fY9WBjwBMlLc+pQRLAuSYc5pWqHIcXN5Pjt/g=
 			</data>
 		</dict>
 		<key>Modules/zano_ios.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HQWsAlJ5P8VGI4x99A6yUIhR/zDSarUrhyckcWckrS4=
+			tsPbX5NXyRyBGtX9r3ce1BrrwuJyhzyidfDlrGffkEA=
 			</data>
 		</dict>
 	</dict>
