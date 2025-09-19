@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C1C22C02CAE16030044307D /* zano_ios.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C91C9912C9408A90002E766 /* zano_ios.xcframework */; };
 		6C4001602CC098BA004D5511 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C40015F2CC098BA004D5511 /* Model.swift */; };
 		6C61F9862CB6434800053E5F /* ZanoString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C61F9842CB6434800053E5F /* ZanoString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C61F9872CB6434800053E5F /* ZanoString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9852CB6434800053E5F /* ZanoString.mm */; };
@@ -21,7 +20,6 @@
 		6C90F5072D85018800639E87 /* libcurrency_core.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FE2D85018800639E87 /* libcurrency_core.a.xcframework */; };
 		6C90F5082D85018800639E87 /* libcommon.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FB2D85018800639E87 /* libcommon.a.xcframework */; };
 		6C90F5092D85018800639E87 /* libcrypto_.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FD2D85018800639E87 /* libcrypto_.a.xcframework */; };
-		6C91C9502C93FF1F0002E766 /* zano_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C91C9472C93FF1E0002E766 /* zano_ios.framework */; };
 		6C91C9552C93FF1F0002E766 /* zano_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C9542C93FF1F0002E766 /* zano_iosTests.swift */; };
 		6C91C9562C93FF1F0002E766 /* zano_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C91C94A2C93FF1E0002E766 /* zano_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C91C9602C9402CA0002E766 /* zano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C95F2C9402CA0002E766 /* zano.swift */; };
@@ -32,7 +30,6 @@
 		6C91C97A2C94084C0002E766 /* zano_ios_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C9792C94084C0002E766 /* zano_ios_sampleTests.swift */; };
 		6C91C9842C94084C0002E766 /* zano_ios_sampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C9832C94084C0002E766 /* zano_ios_sampleUITests.swift */; };
 		6C91C9862C94084C0002E766 /* zano_ios_sampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C9852C94084C0002E766 /* zano_ios_sampleUITestsLaunchTests.swift */; };
-		6C91C9932C9408A90002E766 /* zano_ios.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C91C9912C9408A90002E766 /* zano_ios.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C9E38A92CEADF3E001D5D0E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E38A82CEADF3E001D5D0E /* Model.swift */; };
 		6C9E38AA2CEADFB3001D5D0E /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9952CB9075800053E5F /* AnyCodable.swift */; };
 		6C9E38AB2CEADFB3001D5D0E /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9972CB9075800053E5F /* Either.swift */; };
@@ -45,6 +42,8 @@
 		6C9E38B22CEADFBB001D5D0E /* JSONRPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9882CB9073E00053E5F /* JSONRPCError.swift */; };
 		6C9E38B42CEAE00B001D5D0E /* ZanoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E38B32CEAE00B001D5D0E /* ZanoService.swift */; };
 		6C9E38B62CEB251A001D5D0E /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E38B52CEB251A001D5D0E /* Interactor.swift */; };
+		8D0C17612E7B925400B70FCE /* zano_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C91C9472C93FF1E0002E766 /* zano_ios.framework */; };
+		8DFC7F832E7B951100654957 /* zano_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C91C9472C93FF1E0002E766 /* zano_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +68,13 @@
 			remoteGlobalIDString = 6C91C9642C94084A0002E766;
 			remoteInfo = "zano-ios-sample";
 		};
+		8DFC7F812E7B94F100654957 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C91C93E2C93FF1E0002E766 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C91C9462C93FF1E0002E766;
+			remoteInfo = "zano-ios";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,7 +84,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6C91C9932C9408A90002E766 /* zano_ios.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C91C9502C93FF1F0002E766 /* zano_ios.framework in Frameworks */,
+				8D0C17612E7B925400B70FCE /* zano_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C1C22C02CAE16030044307D /* zano_ios.xcframework in Frameworks */,
+				8DFC7F832E7B951100654957 /* zano_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +409,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8DFC7F822E7B94F100654957 /* PBXTargetDependency */,
 			);
 			name = "zano-ios-sample";
 			productName = "zano-ios-sample";
@@ -477,7 +483,6 @@
 				};
 			};
 			buildConfigurationList = 6C91C9412C93FF1E0002E766 /* Build configuration list for PBXProject "zano-ios" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -485,6 +490,7 @@
 				Base,
 			);
 			mainGroup = 6C91C93D2C93FF1E0002E766;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 6C91C9482C93FF1E0002E766 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -614,6 +620,11 @@
 			isa = PBXTargetDependency;
 			target = 6C91C9642C94084A0002E766 /* zano-ios-sample */;
 			targetProxy = 6C91C9802C94084C0002E766 /* PBXContainerItemProxy */;
+		};
+		8DFC7F822E7B94F100654957 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C91C9462C93FF1E0002E766 /* zano-ios */;
+			targetProxy = 8DFC7F812E7B94F100654957 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
