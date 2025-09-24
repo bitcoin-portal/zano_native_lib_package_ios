@@ -41,3 +41,5 @@ Carthage/Build
 .Ulysses-Settings.plist
 .Ulysses-Group.plist
 zano-ios/Dependencies/
+
+.history/
