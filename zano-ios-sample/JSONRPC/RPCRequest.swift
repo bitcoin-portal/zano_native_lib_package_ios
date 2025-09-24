@@ -1,6 +1,4 @@
-/**
- TODO: Add documentation
- */
+/// TODO: Add documentation
 public struct RPCRequest: Equatable {
 
     public enum Error: Swift.Error {
@@ -31,7 +29,10 @@ public struct RPCRequest: Equatable {
         self.init(method: method, params: AnyCodable(params), id: id)
     }
 
-    init<C>(method: String, checkedParams params: C, idGenerator: IdentifierGenerator = defaultIdentifierGenerator) throws where C: Codable {
+    init<C>(
+        method: String, checkedParams params: C,
+        idGenerator: IdentifierGenerator = defaultIdentifierGenerator
+    ) throws where C: Codable {
         try self.init(method: method, checkedParams: params, id: idGenerator.next())
     }
 
@@ -43,7 +44,9 @@ public struct RPCRequest: Equatable {
         try self.init(method: method, checkedParams: params, id: .left(id))
     }
 
-    init<C>(method: String, params: C, idGenerator: IdentifierGenerator = defaultIdentifierGenerator) where C: Codable {
+    init<C>(
+        method: String, params: C, idGenerator: IdentifierGenerator = defaultIdentifierGenerator
+    ) where C: Codable {
         self.init(method: method, params: AnyCodable(params), id: idGenerator.next())
     }
 
@@ -89,7 +92,7 @@ extension RPCRequest {
 
 extension RPCRequest: Codable {
 
-    public  init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         jsonrpc = try container.decode(String.self, forKey: .jsonrpc)
         guard jsonrpc == "2.0" else {
@@ -102,11 +105,15 @@ extension RPCRequest: Codable {
         method = try container.decode(String.self, forKey: .method)
         params = try container.decodeIfPresent(AnyCodable.self, forKey: .params)
         if let decodedParams = params {
-            if decodedParams.value is Int || decodedParams.value is Double || decodedParams.value is String || decodedParams.value is Bool {
+            if decodedParams.value is Int || decodedParams.value is Double
+                || decodedParams.value is String || decodedParams.value is Bool
+            {
                 throw DecodingError.dataCorruptedError(
                     forKey: .params,
                     in: container,
-                    debugDescription: "The params member cannot be a primitive value, it must be an array or an object.")
+                    debugDescription:
+                        "The params member cannot be a primitive value, it must be an array or an object."
+                )
             }
         }
     }

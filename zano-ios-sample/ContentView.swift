@@ -5,10 +5,9 @@
 //  Created by Jumpei Katayama on 2024/09/13.
 //
 
+import Combine
 import SwiftUI
 import zano_ios
-import Combine
-
 
 struct Wallet: Identifiable {
     let id = UUID()
@@ -17,7 +16,6 @@ struct Wallet: Identifiable {
 
 extension Wallet: Equatable {
 }
-
 
 struct WalletItemView: View {
     let name: String
@@ -79,7 +77,7 @@ struct SettingsScreen: View {
                     Text("Tx Fee")
                     Text(viewModel.fee)
                 }
-                
+
                 VStack(spacing: 8) {
                     Text("Connectivity Status")
                     Text(viewModel.connectionStatus)
@@ -106,28 +104,28 @@ class SettingsViewModel: ObservableObject {
     @Published var workingDir: String = ""
     @Published var ipAddress: String = ""
     @Published var connectionStatus: String = ""
-    
+
     init() {
     }
-    
+
     func onAppear() {
         version = interactor.getVersion()
         fee = interactor.getTransactionFee()
         ipAddress = interactor.ip
         workingDir = interactor.workingDir
-        
+
     }
-    
-    
+
     @MainActor
     func getConnectivityStatus() async {
         do {
             let result = try await interactor.getConnectivityStatus()
-            connectionStatus = "isOnline: \(result.isOnline), isServerBusy: \(result.isServerBusy), lastDaemonIsDisconnected: \(result.lastDaemonIsDisconnected), lastProxyCommunicateTimestamp: \(result.lastProxyCommunicateTimestamp)"
+            connectionStatus =
+                "isOnline: \(result.isOnline), isServerBusy: \(result.isServerBusy), lastDaemonIsDisconnected: \(result.lastDaemonIsDisconnected), lastProxyCommunicateTimestamp: \(result.lastProxyCommunicateTimestamp)"
         } catch {
             debugPrint(error.localizedDescription)
         }
-        
+
     }
 }
 
@@ -144,7 +142,7 @@ struct ContentView: View {
     @State var showExistingWallets: Bool = false
     @State var showAddWallets: Bool = false
     @State var showRestoreWallets: Bool = false
-    
+
     var body: some View {
         NavigationStack(path: $path) {
             ScrollView {
@@ -154,13 +152,15 @@ struct ContentView: View {
                         .frame(width: 28, height: 28)
                         .padding(.horizontal, 16)
                 }
-                LazyVStack() {
+                LazyVStack {
                     Section(
                         content: {
                             if !viewModel.wallets.isEmpty {
                                 ForEach(viewModel.wallets) { wallet in
-                                    WalletItemView(name: wallet.name, onPress: {
-                                    })
+                                    WalletItemView(
+                                        name: wallet.name,
+                                        onPress: {
+                                        })
                                 }
                             } else {
                                 Text("There's no opened wallets")
@@ -170,7 +170,7 @@ struct ContentView: View {
                                     }
                                 }
                             }
-                            
+
                         },
                         header: {
                             HStack {
@@ -178,13 +178,15 @@ struct ContentView: View {
                                 Spacer()
                             }
                         })
-                    
+
                     Section(
                         content: {
                             ForEach(viewModel.allwallets) { wallet in
-                                WalletItemView(name: wallet.name, onPress: {
-                                    path.append(.openExistingWallet(wallet.name))
-                                })
+                                WalletItemView(
+                                    name: wallet.name,
+                                    onPress: {
+                                        path.append(.openExistingWallet(wallet.name))
+                                    })
                             }
                         },
                         header: {
@@ -202,7 +204,7 @@ struct ContentView: View {
                         path.append(NavigationItem.restoreTop)
                     }) {
                         Text("Restore")
-                        
+
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
@@ -213,28 +215,31 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationDestination(for: NavigationItem.self, destination: { path in
-                switch path {
-                case .add:
-                    AddWalletScreen(navigationPath: $path)
-                case .restore:
-                    RestoreWalletScreen(navigationPath: $path)
-                case .restoreTop:
-                    RestoreTopScreen(path: $path)
-                case .openExistingWallet(let walletName):
-                    OpenExistingWalletScreen(navigationPath: $path, viewModel: OpenExistingWalletViewModel(walletName: walletName))
-                }
-            })
+            .navigationDestination(
+                for: NavigationItem.self,
+                destination: { path in
+                    switch path {
+                    case .add:
+                        AddWalletScreen(navigationPath: $path)
+                    case .restore:
+                        RestoreWalletScreen(navigationPath: $path)
+                    case .restoreTop:
+                        RestoreTopScreen(path: $path)
+                    case .openExistingWallet(let walletName):
+                        OpenExistingWalletScreen(
+                            navigationPath: $path,
+                            viewModel: OpenExistingWalletViewModel(walletName: walletName))
+                    }
+                })
         }
-        
-        
+
     }
 }
 
 struct AddWalletScreen: View {
     @Binding var navigationPath: [NavigationItem]
     @StateObject var viewModel: AddWalletViewModel = AddWalletViewModel()
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
@@ -256,7 +261,7 @@ struct AddWalletScreen: View {
             if !navigationPath.isEmpty {
                 navigationPath.removeLast()
             }
-            
+
         }
     }
 }
@@ -267,7 +272,7 @@ class AddWalletViewModel: ObservableObject {
 
     @Published var name: String = ""
     @Published var pass: String = ""
-    
+
     func tapCreateWallet() {
         do {
             let walletResult = try interactor.createWallet(name: name, pass: pass)
@@ -284,19 +289,21 @@ class RestoreWalletViewModel: ObservableObject {
     @Published var pass: String = ""
     @Published var seedPass: String = ""
     @Published var mnemonic: String = ""
-    
+
     @Published var shouldBeBackToTop: Bool?
-    
+
     init() {
     }
-    
+
     @MainActor
     func tapRestoreWallet() {
-        let generatedName = UUID.init(uuidString: mnemonic)?.uuidString ?? String(mnemonic.prefix(10))
+        let generatedName =
+            UUID.init(uuidString: mnemonic)?.uuidString ?? String(mnemonic.prefix(10))
         Task {
-//            let result = try await interactor.asyncRestore(name: "wallet of \(mnemonic.prefix(6))", pass: mnemonic)
-            let result = try await interactor.asyncRestore(name: generatedName, seed: mnemonic, password: pass, seedPass: seedPass)
-            
+            //            let result = try await interactor.asyncRestore(name: "wallet of \(mnemonic.prefix(6))", pass: mnemonic)
+            let result = try await interactor.asyncRestore(
+                name: generatedName, seed: mnemonic, password: pass, seedPass: seedPass)
+
             debugPrint("result is \(String(describing: result))")
             shouldBeBackToTop = true
         }
@@ -306,14 +313,14 @@ class RestoreWalletViewModel: ObservableObject {
 struct RestoreWalletScreen: View {
     @Binding var navigationPath: [NavigationItem]
     @StateObject var viewModel = RestoreWalletViewModel()
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
                 TextField("enter password for wallet pass (Optional)", text: $viewModel.pass)
                 TextField("mnemonic", text: $viewModel.mnemonic)
                 TextField("Enter password for mnemonic (Optional)", text: $viewModel.seedPass)
-                
+
             }
             .padding(.horizontal, 32)
             Button(action: {
@@ -341,32 +348,41 @@ struct RestoreTopScreen: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 8) {
-                Button("Restore", action: {
-                    path.append(.restore)
-                })
+                Button(
+                    "Restore",
+                    action: {
+                        path.append(.restore)
+                    })
             }
             VStack(spacing: 8) {
                 Text("Existing Wallets you can open")
-                LazyVStack() {
+                LazyVStack {
                     ForEach(viewModel.wallets) { wallet in
-                        WalletItemView(name: wallet.name, onPress: {
-                            viewModel.openWallet(walletName: wallet.name)
-                        })
+                        WalletItemView(
+                            name: wallet.name,
+                            onPress: {
+                                viewModel.openWallet(walletName: wallet.name)
+                            })
                     }
                 }
             }
-            .navigationDestination(for: NavigationItem.self, destination: { path in
-                switch path {
-                case .add:
-                    AddWalletScreen(navigationPath: $path)
-                case .restore:
-                    RestoreWalletScreen(navigationPath: $path)
-                case .restoreTop:
-                    RestoreTopScreen(path: $path)
-                case .openExistingWallet(let name):
-                    OpenExistingWalletScreen(navigationPath: $path, viewModel: OpenExistingWalletViewModel(walletName: name))
+            .navigationDestination(
+                for: NavigationItem.self,
+                destination: { path in
+                    switch path {
+                    case .add:
+                        AddWalletScreen(navigationPath: $path)
+                    case .restore:
+                        RestoreWalletScreen(navigationPath: $path)
+                    case .restoreTop:
+                        RestoreTopScreen(path: $path)
+                    case .openExistingWallet(let name):
+                        OpenExistingWalletScreen(
+                            navigationPath: $path,
+                            viewModel: OpenExistingWalletViewModel(walletName: name))
+                    }
                 }
-            })
+            )
             .navigationTitle("Restore Wallet")
         }
     }
@@ -375,16 +391,15 @@ struct RestoreTopScreen: View {
 class RestoreTopViewModel: ObservableObject {
     var interactor = Interactor()
     @Published var wallets: [Wallet] = []
-    
+
     init() {
         wallets = interactor.getWalletNames().map { Wallet(name: $0) }
     }
-    
+
     func openWallet(walletName: String) {
         debugPrint("tap open wallet \(walletName)")
     }
 }
-
 
 // MARK: - ExistingsWalletsScreen
 struct OpenExistingWalletScreen: View {
@@ -436,12 +451,11 @@ struct OpenExistingWalletScreen: View {
             if !navigationPath.isEmpty {
                 navigationPath.removeLast()
             }
-            
+
         }
 
     }
 }
-
 
 class OpenExistingWalletViewModel: ObservableObject {
     var interactor = Interactor.shared
@@ -449,12 +463,11 @@ class OpenExistingWalletViewModel: ObservableObject {
     @Published var pass: String = ""
     @Published var shouldBeBackToTop: Bool?
     @Published var showAlert: Bool = false
-    
-    
+
     init(walletName: String) {
-        self.name  = walletName
+        self.name = walletName
     }
-    
+
     @MainActor
     func open() async throws {
         do {
@@ -465,7 +478,7 @@ class OpenExistingWalletViewModel: ObservableObject {
             showAlert = true
             debugPrint(error.localizedDescription)
         }
-        
+
     }
 }
 
@@ -476,7 +489,7 @@ class ViewModel: ObservableObject {
     @Published var resetStatus: String = ""
     @Published var getWalletStatus: String = ""
     @Published var isOpendingWallet: Bool = false
-    
+
     // opened wallet
     @Published var wallets: [Wallet] = []
     // all wallet
@@ -484,21 +497,20 @@ class ViewModel: ObservableObject {
     fileprivate var walletSubject: PassthroughSubject<[Wallet], Never> = .init()
     fileprivate var allWalletSubject: PassthroughSubject<[Wallet], Never> = .init()
 
-    
     var interactor = Interactor.shared
-    
+
     init() {
         initZANO()
         bind()
         getAllWallets()
     }
-    
+
     func bind() {
         walletSubject
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .assign(to: &$wallets)
-        
+
         allWalletSubject
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
@@ -518,9 +530,6 @@ class ViewModel: ObservableObject {
         _ = interactor.initZano()
     }
 }
-
-
-
 
 struct JsonConverter {
     static func dictonaryToJsonString(dic: [String: Any]) -> String? {

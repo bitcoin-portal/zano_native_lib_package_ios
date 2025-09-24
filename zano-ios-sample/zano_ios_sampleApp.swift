@@ -16,13 +16,13 @@ struct zano_ios_sampleApp: App {
                     .tabItem {
                         Label("Home", systemImage: "list.dash")
                     }
-                
+
                 SettingsScreen()
                     .tabItem {
                         Label("Settings", systemImage: "gear")
                     }
             }
-            
+
         }
     }
 }

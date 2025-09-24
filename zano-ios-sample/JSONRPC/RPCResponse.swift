@@ -55,11 +55,15 @@ public struct RPCResponse: Equatable {
     }
 
     public init(id: Int64, errorCode: String, message: String, associatedData: AnyCodable? = nil) {
-        self.init(id: RPCID(id), outcome: .error(JSONRPCError(code: errorCode, message: message, data: associatedData)))
+        self.init(
+            id: RPCID(id),
+            outcome: .error(JSONRPCError(code: errorCode, message: message, data: associatedData)))
     }
 
     public init(id: String, errorCode: String, message: String, associatedData: AnyCodable? = nil) {
-        self.init(id: RPCID(id), outcome: .error(JSONRPCError(code: errorCode, message: message, data: associatedData)))
+        self.init(
+            id: RPCID(id),
+            outcome: .error(JSONRPCError(code: errorCode, message: message, data: associatedData)))
     }
 
     public init(errorWithoutID: JSONRPCError) {
@@ -80,33 +84,39 @@ extension RPCResponse: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         jsonrpc = try container.decode(String.self, forKey: .jsonrpc)
         // Since ZANO returns "" for jsonrpc, the below guard should be removed
-//        guard jsonrpc == "2.0" else {
-//            throw DecodingError.dataCorruptedError(
-//                forKey: .jsonrpc,
-//                in: container,
-//                debugDescription: "The JSON-RPC protocol version must be exactly \"2.0\".")
-//        }
+        //        guard jsonrpc == "2.0" else {
+        //            throw DecodingError.dataCorruptedError(
+        //                forKey: .jsonrpc,
+        //                in: container,
+        //                debugDescription: "The JSON-RPC protocol version must be exactly \"2.0\".")
+        //        }
         id = try? container.decode(RPCID.self, forKey: .id)
         let result = try? container.decode(AnyCodable.self, forKey: .result)
         let error = try? container.decode(JSONRPCError.self, forKey: .error)
         if let result = result {
             guard error == nil else {
-                throw DecodingError.dataCorrupted(.init(
-                    codingPath: [CodingKeys.result, CodingKeys.error],
-                    debugDescription: "Response is ambiguous: Both result and error members exists simultaneously."))
+                throw DecodingError.dataCorrupted(
+                    .init(
+                        codingPath: [CodingKeys.result, CodingKeys.error],
+                        debugDescription:
+                            "Response is ambiguous: Both result and error members exists simultaneously."
+                    ))
             }
             guard id != nil else {
-                throw DecodingError.dataCorrupted(.init(
-                    codingPath: [CodingKeys.result, CodingKeys.id],
-                    debugDescription: "A success response must have a valid `id`."))
+                throw DecodingError.dataCorrupted(
+                    .init(
+                        codingPath: [CodingKeys.result, CodingKeys.id],
+                        debugDescription: "A success response must have a valid `id`."))
             }
             outcome = .response(result)
         } else if let error = error {
             outcome = .error(error)
         } else {
-            throw DecodingError.dataCorrupted(.init(
-                codingPath: [CodingKeys.result, CodingKeys.error],
-                debugDescription: "Couldn't find neither a result nor an error in the response."))
+            throw DecodingError.dataCorrupted(
+                .init(
+                    codingPath: [CodingKeys.result, CodingKeys.error],
+                    debugDescription: "Couldn't find neither a result nor an error in the response."
+                ))
         }
     }
 
