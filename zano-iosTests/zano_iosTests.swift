@@ -20,7 +20,7 @@ class zano_iosTests: XCTestCase {
     func testZANOVerssion() throws {
         XCTAssertEqual(ZanoWallet.getVersion(), "2.1.0.382[571897a]")
     }
-//    
+    //
     func testHelloWorld() throws {
         XCTAssertEqual(HelloWorld.test(), "This is a test string from ZanoString.")
     }
@@ -28,9 +28,9 @@ class zano_iosTests: XCTestCase {
     func testGetLogsBuffer() throws {
         XCTAssertEqual(ZanoWallet.getLogsBuffer(), "")
     }
-    
+
     /*
-     
+    
      XCTAssertEqual failed: ("{
        "id": 0,
        "jsonrpc": "",
@@ -45,23 +45,23 @@ class zano_iosTests: XCTestCase {
        }
      }")
      */
-    
-//
-//    XCTAssertEqual failed: ("{
-//      "id": 0,
-//      "jsonrpc": "",
-//      "result": {
-//        "return_code": "OK"
-//      }
-//    }") is not equal to (""{
-//      "id": 0,
-//      "jsonrpc": "",
-//      "result": {
-//        "return_code": "OK"
-//      }
-//    }"")
-//    
-    
+
+    //
+    //    XCTAssertEqual failed: ("{
+    //      "id": 0,
+    //      "jsonrpc": "",
+    //      "result": {
+    //        "return_code": "OK"
+    //      }
+    //    }") is not equal to (""{
+    //      "id": 0,
+    //      "jsonrpc": "",
+    //      "result": {
+    //        "return_code": "OK"
+    //      }
+    //    }"")
+    //
+
     func testTruncateLog() throws {
         /*
          {
@@ -92,30 +92,34 @@ class zano_iosTests: XCTestCase {
 
         let fileManager = FileManager.default
 
-        let docsDir = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let docsDir = try! fileManager.url(
+            for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 
-        let result = jsonStringToDictionary((ZanoWallet.InitIpPort(ip: "zano.api.wombat.systems", port: "443", working_dir: docsDir.path, log_level: 0)))
+        let result = jsonStringToDictionary(
+            (ZanoWallet.InitIpPort(
+                ip: "zano.api.wombat.systems", port: "443", working_dir: docsDir.path, log_level: 0))
+        )
         let returnCode = (result?["result"] as? [String: Any])?["return_code"] as? String
         XCTAssertEqual(result?["id"] as? Int, 0)
         XCTAssertEqual(result?["jsonrpc"] as? String, "")
         XCTAssertEqual(returnCode, "OK")
 
     }
-    
+
     func testGetTransactionFee() throws {
         let fee = ZanoWallet.getCurrentTxFee(priority: 0)
-        XCTAssertEqual(fee, 10000000000)
+        XCTAssertEqual(fee, 10_000_000_000)
     }
-    
+
     func jsonStringToDictionary(_ jsonString: String) -> [String: Any]? {
         guard let data = jsonString.data(using: .utf8),
-              let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+        else {
             return nil
         }
         return jsonObject
     }
 }
-
 
 //class ParseTests: XCTestCase {
 //    override func setUpWithError() throws {
@@ -125,7 +129,7 @@ class zano_iosTests: XCTestCase {
 //    override func tearDownWithError() throws {
 //        // Put teardown code here. This method is called after the invocation of each test method in the class.
 //    }
-//    
+//
 //    func testGetWalletResult() throws {
 //        let encoded = mockGetWalletFiles.data(using: .utf8)!
 //        let walletResponse = try JSONRPCParser.parseJsonResponse(jsonData: encoded, resultType: GetWalletFileResult.self)
@@ -133,8 +137,8 @@ class zano_iosTests: XCTestCase {
 //        XCTAssertEqual(walletResponse.items.first ?? "", "my zano wallet")
 //        XCTAssertEqual(walletResponse.items.last ?? "", "my zano wallet2")
 //    }
-//    
-//    
+//
+//
 //    func testWalletInfo() throws {
 //        let encoded = mockWalletResult.data(using: .utf8)!
 //        let walletResponse = try JSONRPCParser.parseResponse(jsonData: encoded, resultType: WalletResult.self)
@@ -169,14 +173,14 @@ class zano_iosTests: XCTestCase {
 //        XCTAssertEqual(walletResponse.walletInfo.path, "/Users/user/Library/Developer/CoreSimulator/Devices/11C27930-183C-4F19-BDDB-0AF90C77BC14/data/Containers/Data/Application/FCF6C287-4A4A-4EB0-BDE6-B292A1A3B39E/Documents/wallets/testWallet1")
 //        XCTAssertEqual(walletResponse.walletInfo.viewSecKey, "7149d1f592ed7e03719e7451a23ebf2250016384f4d7cf057241544648fe4d01")
 //    }
-//    
+//
 //    func testAsyncResponseIdle() throws {
 //        let encoded = mockAsyncResponseIdle.data(using: .utf8)!
 //        let asyncResult = try JSONRPCParser.parseJsonResponse(jsonData: encoded, resultType: AsyncOpenSuccessResponse.self)
 //        XCTAssertEqual(asyncResult.status, .idle)
 //    }
 //
-//    
+//
 ////    func testAsyncResponseSuccess() throws {
 ////        let encoded = mockAsyncResponse.data(using: .utf8)!
 ////        let syncSuccessResponse = try JSONRPCParser.parseJsonResponse(jsonData: encoded, resultType: AsyncOpenSuccessResponse.self)
@@ -199,7 +203,7 @@ class zano_iosTests: XCTestCase {
 ////        XCTAssertEqual(balance.assetInfo.totalMaxSupply, 0)
 ////        XCTAssertEqual(syncSuccessResponse.balance?.unlocked_balance, 4990000000000)
 ////    }
-////    
+////
 //    func testAsyncOpenResponseSuccess() throws {
 //        let encoded = mockAsyncOpenWalletSuccessResponse.data(using: .utf8)!
 //        let asyncResult = try JSONRPCParser.parseJsonResponse(jsonData: encoded, resultType: AsyncResult.self)
@@ -249,7 +253,7 @@ class zano_iosTests: XCTestCase {
 //        XCTAssertEqual(result.walletState, 1)
 //    }
 //
-//    
+//
 //    var mockWalletStatus: String {
 //        return """
 //        {
@@ -262,13 +266,13 @@ class zano_iosTests: XCTestCase {
 //        }
 //        """
 //    }
-//    
+//
 //    var mockAsyncResponseIdle: String {
 //        return """
 //         {"status": "idle"}
 //        """
 //    }
-//        
+//
 //    var mockAsyncResponse: String {
 //        return """
 // {"status": "delivered", "result": {
@@ -298,7 +302,7 @@ class zano_iosTests: XCTestCase {
 //      }  }
 // """
 //    }
-//    
+//
 //    var mockAsyncOpenWalletSuccessResponse: String {
 //        return """
 // {
@@ -352,7 +356,7 @@ class zano_iosTests: XCTestCase {
 // """
 //    }
 //
-//    
+//
 //    var mockConnectivityStatus: String {
 //        return """
 //        {
@@ -363,7 +367,7 @@ class zano_iosTests: XCTestCase {
 //        }
 //"""
 //    }
-//    
+//
 //    var mockGetWalletFiles: String {
 //        return """
 //         {
@@ -426,5 +430,3 @@ class zano_iosTests: XCTestCase {
 //"""
 //    }
 //}
-
-

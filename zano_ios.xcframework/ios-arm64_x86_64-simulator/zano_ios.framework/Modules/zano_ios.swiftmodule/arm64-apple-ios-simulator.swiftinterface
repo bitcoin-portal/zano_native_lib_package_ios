@@ -7,6 +7,8 @@ import Swift
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os.lock
+import os
 @_exported import zano_ios
 public typealias ZANOString = Swift.UnsafeRawPointer
 public var asyncCallMethods: [Swift.String] {

@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6C4001602CC098BA004D5511 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C40015F2CC098BA004D5511 /* Model.swift */; };
-		6C61F9862CB6434800053E5F /* ZanoString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C61F9842CB6434800053E5F /* ZanoString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C61F9872CB6434800053E5F /* ZanoString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9852CB6434800053E5F /* ZanoString.mm */; };
+		6C61F9862CB6434800053E5F /* ZanoBridgeShim.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C61F9842CB6434800053E5F /* ZanoBridgeShim.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C61F9872CB6434800053E5F /* ZanoBridgeShim.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9852CB6434800053E5F /* ZanoBridgeShim.mm */; };
 		6C61F99D2CB90D9700053E5F /* StringConversionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F99C2CB90D9700053E5F /* StringConversionUtils.swift */; };
 		6C61F9A02CB90E2900053E5F /* ZanoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F99F2CB90E2900053E5F /* ZanoCore.swift */; };
 		6C90F5022D85018800639E87 /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FC2D85018800639E87 /* libcrypto.xcframework */; };
@@ -93,8 +93,8 @@
 /* Begin PBXFileReference section */
 		6C1C22D72CAE209A0044307D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		6C40015F2CC098BA004D5511 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		6C61F9842CB6434800053E5F /* ZanoString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZanoString.h; sourceTree = "<group>"; };
-		6C61F9852CB6434800053E5F /* ZanoString.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZanoString.mm; sourceTree = "<group>"; };
+		6C61F9842CB6434800053E5F /* ZanoBridgeShim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZanoBridgeShim.h; sourceTree = "<group>"; };
+		6C61F9852CB6434800053E5F /* ZanoBridgeShim.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZanoBridgeShim.mm; sourceTree = "<group>"; };
 		6C61F9882CB9073E00053E5F /* JSONRPCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRPCError.swift; sourceTree = "<group>"; };
 		6C61F9892CB9073E00053E5F /* JSONRPCImports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRPCImports.swift; sourceTree = "<group>"; };
 		6C61F98A2CB9073E00053E5F /* RPCID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCID.swift; sourceTree = "<group>"; };
@@ -244,8 +244,8 @@
 		6C61F99E2CB90E1100053E5F /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				6C61F9842CB6434800053E5F /* ZanoString.h */,
-				6C61F9852CB6434800053E5F /* ZanoString.mm */,
+				6C61F9842CB6434800053E5F /* ZanoBridgeShim.h */,
+				6C61F9852CB6434800053E5F /* ZanoBridgeShim.mm */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -354,7 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C91C9562C93FF1F0002E766 /* zano_ios.h in Headers */,
-				6C61F9862CB6434800053E5F /* ZanoString.h in Headers */,
+				6C61F9862CB6434800053E5F /* ZanoBridgeShim.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C61F9872CB6434800053E5F /* ZanoString.mm in Sources */,
+				6C61F9872CB6434800053E5F /* ZanoBridgeShim.mm in Sources */,
 				6C91C9602C9402CA0002E766 /* zano.swift in Sources */,
 				6C4001602CC098BA004D5511 /* Model.swift in Sources */,
 				6C61F99D2CB90D9700053E5F /* StringConversionUtils.swift in Sources */,
