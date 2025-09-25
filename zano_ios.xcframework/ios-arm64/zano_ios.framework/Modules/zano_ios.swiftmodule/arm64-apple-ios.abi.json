@@ -1121,7 +1121,7 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/jumpei.katayama\/repo\/github.com\/bitcoin-portal\/zano_native_lib_package_ios\/zano-ios\/Internal\/ZanoCore.swift",
+      "filePath": "\/Users\/jumpei\/repo\/github.com\/bitcoin-portal\/zano_native_lib_package_ios\/zano-ios\/Internal\/ZanoCore.swift",
       "kind": "IntegerLiteral",
       "offset": 1553,
       "length": 1,
