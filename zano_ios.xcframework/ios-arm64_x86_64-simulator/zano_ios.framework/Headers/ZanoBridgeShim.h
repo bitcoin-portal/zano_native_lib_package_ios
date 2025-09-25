@@ -19,6 +19,6 @@ FOUNDATION_EXPORT NSString * ZanoAsyncCallShim(NSString *methodName,
 FOUNDATION_EXPORT NSData * ZanoTryPullResultDataShim(uint64_t jobId);
 
 #ifdef __cplusplus
-} // extern "C"
+}
 #endif
 NS_ASSUME_NONNULL_END
