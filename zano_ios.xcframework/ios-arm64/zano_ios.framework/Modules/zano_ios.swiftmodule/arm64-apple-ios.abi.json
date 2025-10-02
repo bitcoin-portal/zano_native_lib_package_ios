@@ -15,6 +15,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "os.lock",
+        "printedName": "os.lock",
+        "declKind": "Import",
+        "moduleName": "zano_ios",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
         "kind": "Var",
         "name": "asyncCallMethods",
         "printedName": "asyncCallMethods",
@@ -1052,13 +1062,21 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "CxxStdlib",
+        "printedName": "CxxStdlib",
         "declKind": "Import",
         "moduleName": "zano_ios",
         "declAttributes": [
+          "AccessControl",
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "zano_ios"
       },
       {
         "kind": "Import",
@@ -1067,7 +1085,8 @@
         "declKind": "Import",
         "moduleName": "zano_ios",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "RawDocComment"
         ]
       },
       {
@@ -1075,15 +1094,12 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "zano_ios",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "zano_ios"
       },
       {
         "kind": "Import",
-        "name": "CxxStdlib",
-        "printedName": "CxxStdlib",
+        "name": "os.lock",
+        "printedName": "os.lock",
         "declKind": "Import",
         "moduleName": "zano_ios",
         "declAttributes": [
@@ -1107,7 +1123,7 @@
     {
       "filePath": "\/Users\/jumpei\/repo\/github.com\/bitcoin-portal\/zano_native_lib_package_ios\/zano-ios\/Internal\/ZanoCore.swift",
       "kind": "IntegerLiteral",
-      "offset": 1715,
+      "offset": 1553,
       "length": 1,
       "value": "0"
     }

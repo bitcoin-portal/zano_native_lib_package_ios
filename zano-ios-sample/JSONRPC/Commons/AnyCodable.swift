@@ -1,17 +1,15 @@
 import Foundation
 
-/**
- A type-erased codable object.
- 
- The `AnyCodable` type allows to encode and decode data prior to knowing the underlying type, delaying the type-matching
- to a later point in execution.
- 
- When dealing with serialized JSON data structures where a single key can match to different types of values, the `AnyCodable`
- type can be used as a placeholder for `Any` while preserving the `Codable` conformance of the containing type. Another use case
- for the `AnyCodable` type is to facilitate the encoding of arrays of heterogeneous-typed values.
- 
- You can call `get(_:)` to transform the underlying value back to the type you specify.
- */
+/// A type-erased codable object.
+///
+/// The `AnyCodable` type allows to encode and decode data prior to knowing the underlying type, delaying the type-matching
+/// to a later point in execution.
+///
+/// When dealing with serialized JSON data structures where a single key can match to different types of values, the `AnyCodable`
+/// type can be used as a placeholder for `Any` while preserving the `Codable` conformance of the containing type. Another use case
+/// for the `AnyCodable` type is to facilitate the encoding of arrays of heterogeneous-typed values.
+///
+/// You can call `get(_:)` to transform the underlying value back to the type you specify.
 public struct AnyCodable {
 
     public let value: Any
@@ -26,7 +24,7 @@ public struct AnyCodable {
 
     /**
      Creates a type-erased codable value that wraps the given instance.
-     
+    
      - parameters:
         - codable: A codable value to wrap.
      */
@@ -44,7 +42,7 @@ public struct AnyCodable {
 
     /**
      Creates a type-erased codable value that wraps the given instance.
-
+    
      - parameters:
         - any: Any value which supposed to be codable
      */
@@ -54,13 +52,13 @@ public struct AnyCodable {
 
     /**
      Returns the underlying value, provided it matches the type spcified.
-     
+    
      Use this method to retrieve a strong-typed value, as long as it can be decoded from its underlying representation.
-     
+    
      - throws: If the value fails to decode to the specified type.
-     
+    
      - returns: The underlying value, if it can be decoded.
-     
+    
      ```
      let anyCodable = AnyCodable("a message")
      do {
@@ -91,7 +89,8 @@ public struct AnyCodable {
         if let encodeToData = dataEncoding {
             return try encodeToData()
         } else {
-            return try JSONSerialization.data(withJSONObject: value, options: [.fragmentsAllowed, .sortedKeys])
+            return try JSONSerialization.data(
+                withJSONObject: value, options: [.fragmentsAllowed, .sortedKeys])
         }
     }
 }
@@ -172,10 +171,14 @@ extension AnyCodable: Decodable, Encodable {
             } else if container.decodeNil() {
                 throw AnyCodableError.nullFound
             } else {
-                throw DecodingError.dataCorruptedError(in: container, debugDescription: "The container contains nothing serializable.")
+                throw DecodingError.dataCorruptedError(
+                    in: container, debugDescription: "The container contains nothing serializable.")
             }
         } else {
-            throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "No data found in the decoder."))
+            throw DecodingError.dataCorrupted(
+                DecodingError.Context(
+                    codingPath: decoder.codingPath,
+                    debugDescription: "No data found in the decoder."))
         }
     }
 
@@ -208,7 +211,10 @@ extension AnyCodable: Decodable, Encodable {
             } else if let stringVal = value as? String {
                 try container.encode(stringVal)
             } else {
-                throw EncodingError.invalidValue(value, EncodingError.Context.init(codingPath: [], debugDescription: "The value is not encodable."))
+                throw EncodingError.invalidValue(
+                    value,
+                    EncodingError.Context.init(
+                        codingPath: [], debugDescription: "The value is not encodable."))
             }
         }
     }

@@ -7,6 +7,7 @@
 
 import Foundation
 import zano_ios
+
 //// MARK: - Codable
 //
 public struct SuccessResult: Codable {
@@ -26,15 +27,15 @@ public struct GetWalletFileResult: Codable {
 
 // MARK: - Wallet Result
 public struct WalletResult: Codable {
-    public  let name: String
-    public  let pass: String
-    public  let recentHistory: RecentHistory
-    public  let recovered: Bool
-    public  let seed: String
-    public  let walletFileSize: Int
-    public  let walletID: Int
-    public  let walletLocalBCSize: Int
-    public  let walletInfo: WalletInfo
+    public let name: String
+    public let pass: String
+    public let recentHistory: RecentHistory
+    public let recovered: Bool
+    public let seed: String
+    public let walletFileSize: Int
+    public let walletID: Int
+    public let walletLocalBCSize: Int
+    public let walletInfo: WalletInfo
 
     enum CodingKeys: String, CodingKey {
         case name, pass, recovered, seed
@@ -156,7 +157,8 @@ public struct AsyncOpenSuccessResponse: Codable {
         } else if let walletResult = try? asyncResult.result?.result?.get(WalletResult.self) {
             return AsyncOpenSuccessResponse(status: asyncResult.status, walletResult: walletResult)
         } else if let error = asyncResult.result?.error {
-            throw ZANOError.asyncErrorResponse(status: asyncResult.status.rawValue, code: error.code, message: error.message)
+            throw ZANOError.asyncErrorResponse(
+                status: asyncResult.status.rawValue, code: error.code, message: error.message)
         }
         throw ZANOError.unknown(message: "result is nil")
     }
@@ -167,7 +169,6 @@ public enum AsyncSatus: String, Codable {
     case idle
     case canceled
 }
-
 
 // MARK: - StatusModel
 public struct ConnectivityStatus: Codable {
@@ -185,19 +186,17 @@ public struct ConnectivityStatus: Codable {
     }
 }
 
-
 public struct BalanceResult: Codable {
     public let balance: Int
     public let balances: [Balance]
     public let unlocked_balance: Int
 }
 
-
 struct TransferResponse: Codable {
     let txHash: String
     let txSize: Int
     let txUnsignedHex: String
-    
+
     enum CodingKeys: String, CodingKey {
         case txHash = "tx_hash"
         case txSize = "tx_size"
@@ -228,7 +227,9 @@ public struct WorkingDir {
     public static var dir: String? {
         let fileManager = FileManager.default
 
-        if let docsDir = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+        if let docsDir = try? fileManager.url(
+            for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        {
             return docsDir.path
         } else {
             return nil
@@ -256,7 +257,7 @@ public struct ZANOConst {
 public struct JSONRPCParser {
     public static func parseResponse<T: Codable>(jsonData: Data, resultType: T.Type) throws -> T {
         let decodedResponse = try JSONDecoder().decode(RPCResponse.self, from: jsonData)
-        
+
         if let result = decodedResponse.result {
             // Return success with the parsed result
             return try result.get(T.self)
@@ -267,10 +268,9 @@ public struct JSONRPCParser {
             throw ZANOError.unknown(message: "")
         }
     }
-    
-    public static func parseJsonResponse<T: Codable>(jsonData: Data, resultType: T.Type) throws -> T {
+
+    public static func parseJsonResponse<T: Codable>(jsonData: Data, resultType: T.Type) throws -> T
+    {
         return try JSONDecoder().decode(T.self, from: jsonData)
     }
 }
-
-

@@ -8,41 +8,43 @@
 import Foundation
 import zano_ios
 
-
 class Interactor {
     var walletAndID: [String: Int] = [:]
-    let pollDelay: UInt64 = 1_000_000_000 // in nanoseconds (1 second)
-    let timeout: UInt64 = 5_000_000_000    // in nanoseconds (5 seconds)
+    let pollDelay: UInt64 = 1_000_000_000  // in nanoseconds (1 second)
+    let timeout: UInt64 = 5_000_000_000  // in nanoseconds (5 seconds)
 
     public static var shared: Interactor = Interactor()
     var initStatus: String = ""
     var ip: String = "\(ZANOConst.ZANO_MAINNET_IP):\(ZANOConst.ZANO_MAINNET_PORT)"
     var workingDir: String = ""
-    
+
     func initZano() -> String {
         let fileManager = FileManager.default
-        if let docsDir = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+        if let docsDir = try? fileManager.url(
+            for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        {
             let strX = docsDir.path
-            
+
             Interactor.shared.workingDir = strX
-            let res = try! ZanoService.shared.initIpPort(ip: ZANOConst.ZANO_MAINNET_IP, port: ZANOConst.ZANO_MAINNET_PORT, working_dir: strX, log_level: 0)
+            let res = try! ZanoService.shared.initIpPort(
+                ip: ZANOConst.ZANO_MAINNET_IP, port: ZANOConst.ZANO_MAINNET_PORT, working_dir: strX,
+                log_level: 0)
             self.initStatus = res.returnCode
-            
-            
+
             return res.returnCode
         } else {
             return "Error"
         }
     }
-    
+
     func getConnectivityStatus() async throws -> ConnectivityStatus {
         return try ZanoService.shared.getConnectivityStatus()
     }
-    
+
     func getVersion() -> String {
         return ZanoService.getVersion()
     }
-    
+
     func getTransactionFee() -> String {
         return ZanoService.getCurrentTxFee(priority: 0).description
     }
@@ -60,16 +62,17 @@ class Interactor {
             throw ZANOError.unknown(message: "ZanoService.shared.generate failed")
         }
     }
-    
+
     public func getWalletNames() -> [String] {
         do {
             return try ZanoService.shared.getWalletNames().items
         } catch {
-            debugPrint("ZanoService.shared.getWalletNames().items throws \(error.localizedDescription)")
+            debugPrint(
+                "ZanoService.shared.getWalletNames().items throws \(error.localizedDescription)")
             return []
         }
     }
-    
+
     func getOpenedWallets() async -> [WalletResult] {
         do {
             return try await ZanoService.shared.getOpenedWallets()
@@ -78,13 +81,13 @@ class Interactor {
             return []
         }
     }
-    
-    
-    
+
     public func reset() throws -> SuccessResult {
         return try ZanoService.shared.reset()
     }
-    func asyncRestore(name: String, seed: String, password: String, seedPass: String) async throws -> WalletResult? {
+    func asyncRestore(name: String, seed: String, password: String, seedPass: String) async throws
+        -> WalletResult?
+    {
         let params: [String: Any] = [
             "seed_phrase": seed,
             "path": name,
@@ -99,19 +102,22 @@ class Interactor {
         do {
             let startTimer = DispatchTime.now()
 
-            let result = try await ZanoService.shared.asyncCall(methodName: "restore", walletId: 0, params: jsonString)
-            
+            let result = try await ZanoService.shared.asyncCall(
+                methodName: "restore", walletId: 0, params: jsonString)
+
             var status: AsyncSatus = .idle
-            
+
             debugPrint("waiting for 100_000_000 nano sec")
             try await Task.sleep(nanoseconds: 100_000_000)
             while DispatchTime.now().uptimeNanoseconds - startTimer.uptimeNanoseconds < timeout {
-                debugPrint("DispatchTime.now().uptimeNanoseconds - startTimer.uptimeNanoseconds < timeout is true")
+                debugPrint(
+                    "DispatchTime.now().uptimeNanoseconds - startTimer.uptimeNanoseconds < timeout is true"
+                )
                 let result1 = try await ZanoService.shared.asyncOpen(jobId: result.jobId)
-                
+
                 print("async response \(result1)")
                 status = result1.status
-                
+
                 switch result1.status {
                 case .canceled:
                     debugPrint("canceled...")
@@ -130,8 +136,10 @@ class Interactor {
                 debugPrint("pollDelay... \(pollDelay)")
                 try await Task.sleep(nanoseconds: pollDelay)
             }
-            
-            debugPrint("DispatchTime.now().uptimeNanoseconds - startTimer.uptimeNanoseconds < timeout is false")
+
+            debugPrint(
+                "DispatchTime.now().uptimeNanoseconds - startTimer.uptimeNanoseconds < timeout is false"
+            )
             return nil
         } catch {
             debugPrint("asyncOpen() throws error")
@@ -140,27 +148,28 @@ class Interactor {
         }
 
     }
-    
-    
-    
+
     func asyncOpen(name: String, pass: String) async throws -> WalletResult? {
         let param = "{\"path\": \"\(name)\", \"pass\": \"\(pass)\"}"
         do {
             let startTimer = DispatchTime.now()
 
-            let result = try await ZanoService.shared.asyncCall(methodName: "open", walletId: 0, params: param)
-            
+            let result = try await ZanoService.shared.asyncCall(
+                methodName: "open", walletId: 0, params: param)
+
             var status: AsyncSatus = .idle
-            
+
             debugPrint("waiting for 100_000_000 nano sec")
             try await Task.sleep(nanoseconds: 100_000_000)
             while DispatchTime.now().uptimeNanoseconds - startTimer.uptimeNanoseconds < timeout {
-                debugPrint("DispatchTime.now().uptimeNanoseconds - startTimer.uptimeNanoseconds < timeout is true")
+                debugPrint(
+                    "DispatchTime.now().uptimeNanoseconds - startTimer.uptimeNanoseconds < timeout is true"
+                )
                 let result1 = try await ZanoService.shared.asyncOpen(jobId: result.jobId)
-                
+
                 print("async response \(result1)")
                 status = result1.status
-                
+
                 switch result1.status {
                 case .canceled:
                     debugPrint("canceled...")

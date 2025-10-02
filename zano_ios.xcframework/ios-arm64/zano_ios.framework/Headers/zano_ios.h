@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char zano_iosVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <zano_ios/PublicHeader.h>
 
 // __INTERNAL__
-#import <zano_ios/ZanoString.h>
+#import <zano_ios/ZanoBridgeShim.h>
