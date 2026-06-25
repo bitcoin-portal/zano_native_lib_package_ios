@@ -1505,13 +1505,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Error",
-            "printedName": "Error",
-            "usr": "s:s5ErrorP",
-            "mangledName": "$ss5ErrorP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -1537,6 +1530,20 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
           }
         ]
       },
@@ -2507,20 +2514,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -2532,6 +2525,20 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -3309,24 +3316,10 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
           },
           {
             "kind": "Conformance",
@@ -3344,10 +3337,24 @@
           },
           {
             "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           }
         ]
       },
@@ -3630,13 +3637,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Error",
             "printedName": "Error",
             "usr": "s:s5ErrorP",
@@ -3644,10 +3644,24 @@
           },
           {
             "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Sendable",
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -3770,13 +3784,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -3788,6 +3795,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -3926,13 +3940,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -3944,6 +3951,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -4418,13 +4432,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -4436,6 +4443,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -4602,13 +4616,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -4620,6 +4627,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -5066,13 +5080,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -5084,6 +5091,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -5382,13 +5396,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -5400,6 +5407,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -5874,13 +5888,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -5892,6 +5899,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -6013,13 +6027,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -6031,6 +6038,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -6284,13 +6298,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -6302,6 +6309,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -6579,13 +6593,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -6597,6 +6604,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -6791,13 +6805,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -6809,6 +6816,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -7019,17 +7033,17 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -7327,13 +7341,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -7345,6 +7352,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -7570,13 +7584,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -7588,6 +7595,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -7929,13 +7943,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -7947,6 +7954,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -8359,34 +8373,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -8398,6 +8384,34 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           }
         ]
       },
@@ -8584,17 +8598,17 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -8616,6 +8630,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -8904,13 +8925,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -8929,6 +8943,13 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -9093,17 +9114,17 @@
               },
               {
                 "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              },
-              {
-                "kind": "Conformance",
                 "name": "Equatable",
                 "printedName": "Equatable",
                 "usr": "s:SQ",
                 "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
               },
               {
                 "kind": "Conformance",
@@ -9125,6 +9146,13 @@
                 "printedName": "Sendable",
                 "usr": "s:s8SendableP",
                 "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
               }
             ]
           },
@@ -9431,20 +9459,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -9456,6 +9470,20 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       }
@@ -9464,287 +9492,287 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/zano.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/zano.swift",
       "kind": "StringLiteral",
       "offset": 10957,
       "length": 17,
       "value": "\"195.201.107.230\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/zano.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/zano.swift",
       "kind": "StringLiteral",
       "offset": 11017,
       "length": 7,
       "value": "\"33336\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/zano.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/zano.swift",
       "kind": "StringLiteral",
       "offset": 11066,
       "length": 13,
       "value": "\"testWallet1\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/zano.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/zano.swift",
       "kind": "StringLiteral",
       "offset": 11125,
       "length": 20,
       "value": "\"testWalletPassword\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/zano.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/zano.swift",
       "kind": "StringLiteral",
       "offset": 11195,
       "length": 169,
       "value": "\"insult understand back vein peaceful somewhere bare deeply anyone hunger wait prince shoot grip scream bowl mama card dread less sadness angry explore almost worry dim\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/zano.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/zano.swift",
       "kind": "StringLiteral",
       "offset": 11417,
       "length": 99,
       "value": "\"ZxCx5QqAh67JwX7F2hs7M2FcJ3bcLEhWfb2yqiofDeWn67guYBA4fwb1ekbsp7vZid35fVJtY6E2iiWVUJWRkyQu1Mchqr3iE\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 506,
       "length": 13,
       "value": "\"return_code\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 697,
       "length": 7,
       "value": "\"items\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 1201,
       "length": 16,
       "value": "\"recent_history\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 1248,
       "length": 18,
       "value": "\"wallet_file_size\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 1291,
       "length": 11,
       "value": "\"wallet_id\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 1336,
       "length": 22,
       "value": "\"wallet_local_bc_size\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 1385,
       "length": 4,
       "value": "\"wi\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 1611,
       "length": 17,
       "value": "\"last_item_index\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 1662,
       "length": 21,
       "value": "\"total_history_items\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 2134,
       "length": 26,
       "value": "\"has_bare_unspent_outputs\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 2188,
       "length": 14,
       "value": "\"is_auditable\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 2230,
       "length": 15,
       "value": "\"is_watch_only\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 2272,
       "length": 13,
       "value": "\"mined_total\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 2330,
       "length": 14,
       "value": "\"view_sec_key\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 2631,
       "length": 12,
       "value": "\"asset_info\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 2670,
       "length": 13,
       "value": "\"awaiting_in\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 2711,
       "length": 14,
       "value": "\"awaiting_out\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3180,
       "length": 10,
       "value": "\"asset_id\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3220,
       "length": 16,
       "value": "\"current_supply\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3265,
       "length": 15,
       "value": "\"decimal_point\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3305,
       "length": 11,
       "value": "\"full_name\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3345,
       "length": 15,
       "value": "\"hidden_supply\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3385,
       "length": 11,
       "value": "\"meta_info\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3454,
       "length": 18,
       "value": "\"total_max_supply\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3609,
       "length": 8,
       "value": "\"job_id\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 3888,
       "length": 12,
       "value": "\"payment_id\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 5433,
       "length": 11,
       "value": "\"is_online\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 5473,
       "length": 16,
       "value": "\"is_server_busy\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 5530,
       "length": 29,
       "value": "\"last_daemon_is_disconnected\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 5605,
       "length": 34,
       "value": "\"last_proxy_communicate_timestamp\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 6155,
       "length": 23,
       "value": "\"current_daemon_height\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 6214,
       "length": 23,
       "value": "\"current_wallet_height\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 6271,
       "length": 21,
       "value": "\"is_daemon_connected\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 6324,
       "length": 20,
       "value": "\"is_in_long_refresh\""
     },
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/jkatayama\/zano_native_lib_package_ios\/zano-ios\/Model.swift",
+      "filePath": "\/Users\/jchau\/zano_native_lib_package_ios-2.2.0.490\/zano-ios\/Model.swift",
       "kind": "StringLiteral",
       "offset": 6394,
       "length": 14,
