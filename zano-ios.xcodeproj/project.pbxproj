@@ -12,14 +12,7 @@
 		6C61F9872CB6434800053E5F /* ZanoBridgeShim.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F9852CB6434800053E5F /* ZanoBridgeShim.mm */; };
 		6C61F99D2CB90D9700053E5F /* StringConversionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F99C2CB90D9700053E5F /* StringConversionUtils.swift */; };
 		6C61F9A02CB90E2900053E5F /* ZanoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61F99F2CB90E2900053E5F /* ZanoCore.swift */; };
-		6C90F5022D85018800639E87 /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FC2D85018800639E87 /* libcrypto.xcframework */; };
-		6C90F5032D85018800639E87 /* libssl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FF2D85018800639E87 /* libssl.xcframework */; };
-		6C90F5042D85018800639E87 /* libboost.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FA2D85018800639E87 /* libboost.xcframework */; };
-		6C90F5052D85018800639E87 /* libz.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F5012D85018800639E87 /* libz.a.xcframework */; };
-		6C90F5062D85018800639E87 /* libwallet.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F5002D85018800639E87 /* libwallet.a.xcframework */; };
-		6C90F5072D85018800639E87 /* libcurrency_core.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FE2D85018800639E87 /* libcurrency_core.a.xcframework */; };
-		6C90F5082D85018800639E87 /* libcommon.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FB2D85018800639E87 /* libcommon.a.xcframework */; };
-		6C90F5092D85018800639E87 /* libcrypto_.a.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C90F4FD2D85018800639E87 /* libcrypto_.a.xcframework */; };
+		D9926D57220647CEBE70A3D3 /* libzano-plain-wallet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FEF645AEA01453BB757501B /* libzano-plain-wallet.xcframework */; };
 		6C91C9552C93FF1F0002E766 /* zano_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C9542C93FF1F0002E766 /* zano_iosTests.swift */; };
 		6C91C9562C93FF1F0002E766 /* zano_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C91C94A2C93FF1E0002E766 /* zano_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C91C9602C9402CA0002E766 /* zano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C91C95F2C9402CA0002E766 /* zano.swift */; };
@@ -106,14 +99,7 @@
 		6C61F9972CB9075800053E5F /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		6C61F99C2CB90D9700053E5F /* StringConversionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConversionUtils.swift; sourceTree = "<group>"; };
 		6C61F99F2CB90E2900053E5F /* ZanoCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanoCore.swift; sourceTree = "<group>"; };
-		6C90F4FA2D85018800639E87 /* libboost.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libboost.xcframework; sourceTree = "<group>"; };
-		6C90F4FB2D85018800639E87 /* libcommon.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcommon.a.xcframework; sourceTree = "<group>"; };
-		6C90F4FC2D85018800639E87 /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcrypto.xcframework; sourceTree = "<group>"; };
-		6C90F4FD2D85018800639E87 /* libcrypto_.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcrypto_.a.xcframework; sourceTree = "<group>"; };
-		6C90F4FE2D85018800639E87 /* libcurrency_core.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcurrency_core.a.xcframework; sourceTree = "<group>"; };
-		6C90F4FF2D85018800639E87 /* libssl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libssl.xcframework; sourceTree = "<group>"; };
-		6C90F5002D85018800639E87 /* libwallet.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libwallet.a.xcframework; sourceTree = "<group>"; };
-		6C90F5012D85018800639E87 /* libz.a.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libz.a.xcframework; sourceTree = "<group>"; };
+		9FEF645AEA01453BB757501B /* libzano-plain-wallet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libzano-plain-wallet.xcframework; sourceTree = "<group>"; };
 		6C91C9472C93FF1E0002E766 /* zano_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = zano_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C91C94A2C93FF1E0002E766 /* zano_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zano_ios.h; sourceTree = "<group>"; };
 		6C91C94F2C93FF1F0002E766 /* zano-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zano-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,14 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C90F5022D85018800639E87 /* libcrypto.xcframework in Frameworks */,
-				6C90F5032D85018800639E87 /* libssl.xcframework in Frameworks */,
-				6C90F5042D85018800639E87 /* libboost.xcframework in Frameworks */,
-				6C90F5052D85018800639E87 /* libz.a.xcframework in Frameworks */,
-				6C90F5062D85018800639E87 /* libwallet.a.xcframework in Frameworks */,
-				6C90F5072D85018800639E87 /* libcurrency_core.a.xcframework in Frameworks */,
-				6C90F5082D85018800639E87 /* libcommon.a.xcframework in Frameworks */,
-				6C90F5092D85018800639E87 /* libcrypto_.a.xcframework in Frameworks */,
+				D9926D57220647CEBE70A3D3 /* libzano-plain-wallet.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +167,7 @@
 		6C1C22C12CAE18AD0044307D /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				6C90F4FA2D85018800639E87 /* libboost.xcframework */,
-				6C90F4FB2D85018800639E87 /* libcommon.a.xcframework */,
-				6C90F4FC2D85018800639E87 /* libcrypto.xcframework */,
-				6C90F4FD2D85018800639E87 /* libcrypto_.a.xcframework */,
-				6C90F4FE2D85018800639E87 /* libcurrency_core.a.xcframework */,
-				6C90F4FF2D85018800639E87 /* libssl.xcframework */,
-				6C90F5002D85018800639E87 /* libwallet.a.xcframework */,
-				6C90F5012D85018800639E87 /* libz.a.xcframework */,
+				9FEF645AEA01453BB757501B /* libzano-plain-wallet.xcframework */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -769,10 +741,9 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/zano-ios/Dependencies/libwallet.a.xcframework/",
 					"$(SRCROOT)/zano-ios/Dependencies/",
 					"$(SRCROOT)/zano-ios/wallet",
-					"$(SRCROOT)/zano-ios/Dependencies/libwallet.a.xcframework/ios-arm64/Headers",
+					"$(SRCROOT)/zano-ios/Dependencies/libzano-plain-wallet.xcframework/ios-arm64/Headers",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -824,10 +795,9 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/zano-ios/Dependencies/libwallet.a.xcframework/",
 					"$(SRCROOT)/zano-ios/Dependencies/",
 					"$(SRCROOT)/zano-ios/wallet",
-					"$(SRCROOT)/zano-ios/Dependencies/libwallet.a.xcframework/ios-arm64/Headers",
+					"$(SRCROOT)/zano-ios/Dependencies/libzano-plain-wallet.xcframework/ios-arm64/Headers",
 				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
