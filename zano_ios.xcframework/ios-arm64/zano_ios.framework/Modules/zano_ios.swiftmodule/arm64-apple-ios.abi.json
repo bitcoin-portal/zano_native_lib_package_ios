@@ -1022,17 +1022,17 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Error",
             "printedName": "Error",
             "usr": "s:s5ErrorP",
             "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -1121,7 +1121,7 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/jumpei\/repo\/github.com\/bitcoin-portal\/zano_native_lib_package_ios\/zano-ios\/Internal\/ZanoCore.swift",
+      "filePath": "zano-ios\/Internal\/ZanoCore.swift",
       "kind": "IntegerLiteral",
       "offset": 1553,
       "length": 1,
